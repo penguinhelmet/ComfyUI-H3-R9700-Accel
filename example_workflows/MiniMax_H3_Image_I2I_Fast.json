@@ -1,0 +1,4215 @@
+{
+  "id": "6e5d96b7-1687-4e3d-8559-6c3e5468c193",
+  "revision": 0,
+  "last_node_id": 109,
+  "last_link_id": 146,
+  "nodes": [
+    {
+      "id": 29,
+      "type": "UNETLoader",
+      "pos": [
+        19.88859755761338,
+        76.5907565662041
+      ],
+      "size": [
+        590,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "unet_name",
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "weight_dtype",
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "weight_dtype"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            54
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0",
+        "models": [
+          {
+            "name": "minimax_h3_image_pruned_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/main/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax-h3/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax-h3/minimax_h3_image_pruned_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 30,
+      "type": "CLIPLoader",
+      "pos": [
+        19.88859755761338,
+        226.58147217691604
+      ],
+      "size": [
+        590,
+        120
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip_name",
+          "name": "clip_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "type",
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "device",
+          "name": "device",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            142
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0",
+        "models": [
+          {
+            "name": "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax-h3/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "minimax-h3/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 31,
+      "type": "VAELoader",
+      "pos": [
+        19.888597557613494,
+        403.16345925047113
+      ],
+      "size": [
+        590,
+        70
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            50,
+            60
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0",
+        "models": [
+          {
+            "name": "minimax_h3_image_vae_fp16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3-Image/resolve/main/vae/minimax_h3_image_vae_fp16.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax-h3/minimax_h3_image_vae_fp16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax-h3/minimax_h3_image_vae_fp16.safetensors"
+      }
+    },
+    {
+      "id": 32,
+      "type": "MiniMaxH3ImageConditioning",
+      "pos": [
+        994.8528849207876,
+        -9.425246847018654
+      ],
+      "size": [
+        436.3978281252762,
+        356
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 144
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 50
+        },
+        {
+          "localized_name": "image_0",
+          "name": "images.image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 100
+        },
+        {
+          "localized_name": "image_1",
+          "name": "images.image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 99
+        },
+        {
+          "localized_name": "image_2",
+          "name": "images.image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 108
+        },
+        {
+          "localized_name": "image_3",
+          "name": "images.image_3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 112
+        },
+        {
+          "localized_name": "image_4",
+          "name": "images.image_4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 114
+        },
+        {
+          "localized_name": "image_5",
+          "name": "images.image_5",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_6",
+          "name": "images.image_6",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_7",
+          "name": "images.image_7",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image_8",
+          "name": "images.image_8",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 89
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 125
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 126
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            52,
+            55
+          ]
+        },
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            57
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ImageConditioning",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "",
+        3104,
+        3104
+      ],
+      "widgets_values_named": {
+        "prompt": "",
+        "width": 3104,
+        "height": 3104
+      }
+    },
+    {
+      "id": 33,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        1131.250713046064,
+        430.5747531529813
+      ],
+      "size": [
+        300,
+        50
+      ],
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "conditioning",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 52
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            56
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      }
+    },
+    {
+      "id": 34,
+      "type": "TextGenerateV2",
+      "pos": [
+        527.6455503973646,
+        1760.981791212072
+      ],
+      "size": [
+        400,
+        540
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "showAdvanced": true,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 67
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 81
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "video1",
+          "name": "videos.video1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "audio1",
+          "name": "audios.audio1",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "audio2",
+          "name": "audios.audio2",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "audio3",
+          "name": "audios.audio3",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "system_prompt",
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "link": 68
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 69
+        },
+        {
+          "localized_name": "max_length",
+          "name": "max_length",
+          "type": "INT",
+          "widget": {
+            "name": "max_length"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "Sampling Mode",
+          "name": "sampling_mode",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "sampling_mode"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "temperature",
+          "name": "sampling_mode.temperature",
+          "type": "FLOAT",
+          "widget": {
+            "name": "sampling_mode.temperature"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "top_k",
+          "name": "sampling_mode.top_k",
+          "type": "INT",
+          "widget": {
+            "name": "sampling_mode.top_k"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "top_p",
+          "name": "sampling_mode.top_p",
+          "type": "FLOAT",
+          "widget": {
+            "name": "sampling_mode.top_p"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "min_p",
+          "name": "sampling_mode.min_p",
+          "type": "FLOAT",
+          "widget": {
+            "name": "sampling_mode.min_p"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "repetition_penalty",
+          "name": "sampling_mode.repetition_penalty",
+          "type": "FLOAT",
+          "widget": {
+            "name": "sampling_mode.repetition_penalty"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "presence_penalty",
+          "name": "sampling_mode.presence_penalty",
+          "type": "FLOAT",
+          "widget": {
+            "name": "sampling_mode.presence_penalty"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "sampling_mode.seed",
+          "type": "INT",
+          "widget": {
+            "name": "sampling_mode.seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "thinking",
+          "name": "thinking",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "thinking"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "use_default_template",
+          "name": "use_default_template",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "use_default_template"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "mtp",
+          "name": "mtp",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "mtp"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "generated_text",
+          "name": "generated_text",
+          "type": "STRING",
+          "links": [
+            65
+          ]
+        },
+        {
+          "localized_name": "thinking",
+          "name": "thinking",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextGenerateV2",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "",
+        8196,
+        "on",
+        1,
+        20,
+        0.95,
+        0,
+        1,
+        0,
+        0,
+        true,
+        true,
+        "auto"
+      ],
+      "widgets_values_named": {
+        "prompt": "",
+        "max_length": 8196,
+        "sampling_mode": "on",
+        "sampling_mode.temperature": 1,
+        "sampling_mode.top_k": 20,
+        "sampling_mode.top_p": 0.95,
+        "sampling_mode.min_p": 0,
+        "sampling_mode.repetition_penalty": 1,
+        "sampling_mode.presence_penalty": 0,
+        "sampling_mode.seed": 0,
+        "thinking": true,
+        "use_default_template": true,
+        "mtp": "auto"
+      }
+    },
+    {
+      "id": 35,
+      "type": "CLIPLoader",
+      "pos": [
+        -88.96566110955231,
+        1745.981791212072
+      ],
+      "size": [
+        433.6668774240775,
+        110.00000000000045
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "showAdvanced": false,
+      "inputs": [
+        {
+          "localized_name": "clip_name",
+          "name": "clip_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "type",
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "device",
+          "name": "device",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            67
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0",
+        "models": [
+          {
+            "name": "qwen3.5_9b_w4a8_gptq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen3.5/resolve/main/text_encoders/qwen3.5_9b_w4a8_gptq.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "qwen3.5/qwen3.5_9b_int8_convrot.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3.5/qwen3.5_9b_int8_convrot.safetensors",
+        "type": "minimax",
+        "device": "default"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 36,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -102.3544496026353,
+        1908.8966516183839
+      ],
+      "size": [
+        570,
+        170
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            68
+          ]
+        }
+      ],
+      "title": "Text (system_prompt)",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "Reason in the thinking section first. The visible final content must be exactly one JSON object with exactly two keys: expanded_caption and aspect_ratio. Every ASCII double quotation mark used as caption content inside expanded_caption must be serialized as the JSON escape sequence \\\". Do not output text outside that object."
+      ],
+      "widgets_values_named": {
+        "value": "Reason in the thinking section first. The visible final content must be exactly one JSON object with exactly two keys: expanded_caption and aspect_ratio. Every ASCII double quotation mark used as caption content inside expanded_caption must be serialized as the JSON escape sequence \\\". Do not output text outside that object."
+      }
+    },
+    {
+      "id": 37,
+      "type": "PreviewAny",
+      "pos": [
+        1278.2299229119742,
+        1760.9817912120725
+      ],
+      "size": [
+        460,
+        620
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source",
+          "name": "source",
+          "type": "*",
+          "link": 53
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            89
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 38,
+      "type": "KSampler",
+      "pos": [
+        1534.726213446276,
+        -10.000000000000004
+      ],
+      "size": [
+        320,
+        510
+      ],
+      "flags": {},
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 146
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 55
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 56
+        },
+        {
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 57
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            59
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        186631427609645,
+        "randomize",
+        8,
+        1,
+        "lcm",
+        "simple",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 186631427609645,
+        "control_after_generate": "randomize",
+        "steps": 8,
+        "cfg": 1,
+        "sampler_name": "lcm",
+        "scheduler": "simple",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 39,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -88.96566110955231,
+        2135.1547385797494
+      ],
+      "size": [
+        589.4279698814075,
+        277.17619709749124
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            58
+          ]
+        }
+      ],
+      "title": "Text (task_prompt)",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "You are an expert at enhancing a short image-editing instruction into a rich, vivid, reference-conditioned description of the intended finished target image.\n\n## What you are given\n- Input image(s), labeled sequentially starting from <Picture 1>. These are the user's source and reference images.\n- One short editing instruction. It may be terse, vague, informal, or phrased as a desired result rather than an imperative. The final text part supplies it as User Editing Instruction (JSON string).\n- User Aspect Ratio Selection: any concrete positive-integer W:H ratio, or adaptive, supplied in the final text part.\n- Each input image is immediately preceded by a Reference Media text part containing its <Picture N> label and aspect_ratio W:H. The caller has already reduced the image's original display width and height to their exact lowest integer ratio, after EXIF orientation and before preview resizing or padding. No pixel dimensions are supplied in this metadata. The ratio applies only to the immediately following image. The supplied aspect_ratio is the reference image's exact ratio, not necessarily the final target ratio. Use it as given; do not estimate the source ratio from the preview. Determine the final target ratio using the rules below. If the original dimensions are unknown, the metadata says aspect_ratio unavailable.\n- There is no target image. Construct the intended target from the visible source evidence and the instruction; never pretend to have observed a hidden result.\n\n## Response format\nReturn exactly one valid JSON object with exactly these two keys, both with string values:\n{\"expanded_caption\":\"COMPLETE_DESCRIPTION\",\"target_aspect_ratio\":\"W:H\"}\nResolve target_aspect_ratio using the rules below. Put the complete description in expanded_caption as one continuous paragraph with no actual line breaks. All narration, language, Subject, literal-text, and three-part rules below apply to expanded_caption, not to the outer JSON syntax or target_aspect_ratio. Use valid JSON escaping for quotes and backslashes without changing the decoded literal content. Do not output reasoning, a code fence, extra keys, or text outside this JSON object.\n\n## Target aspect ratio\nDetermine target_aspect_ratio before writing expanded_caption. Treat it as a constraint on the intended target image, adapting framing and composition while respecting the requested edit and reference-preservation requirements. Describe any necessary changes under the changed/new-content rules. User Aspect Ratio Selection is part of the user's request. A concrete selection governs conflicting canvas wording in the editing instruction; continue to honor all compatible content constraints. Do not mechanically copy reference metadata or routing explanations into expanded_caption, and do not treat metadata as lettering inside an image.\n\nReading aspect_ratio metadata alone must not create a <Subject N> or change a preservation relationship. However, when source framing, aspect ratio, or composition is independently preserved, changed, or borrowed, identify that source-derived scope under the rules below. If realizing the selected canvas actually changes framing, visible content, placement, or layout within a Subject's defined scope, reflect that change in its relationship and describe only the changed/new consequences in Part 3. Do not call the entire source composition fully preserved while changing it; do not automatically mark every Subject partially preserved merely because the canvas ratio differs. Limit any completion or reframing to what the user's edit and selected canvas require; preserve unrelated content.\n\nRead User Aspect Ratio Selection from the final input part.\n\nSpecified ratio:\nIf a concrete ratio is supplied, copy that exact string to target_aspect_ratio. Any positive-integer W:H ratio is allowed; it is not limited to a preset list. Neither the editing instruction nor a reference image may override it.\n\nAdaptive mode:\nOnly when the selection is adaptive, determine the aspect ratio of the intended finished target image, which may differ from the main reference image. Apply these rules in order:\n\n1. Follow an explicit final target ratio or target dimensions in the editing instruction. Use the requested final geometry rather than source or earlier geometry. Exact numeric geometry takes precedence over generic orientation. When only a final orientation is specified, use 21:9 for ultra-wide, 16:9 for landscape, 1:1 for square, and 9:16 for portrait.\n\n2. Otherwise, select the main reference that supplies the edited base canvas or overall target composition and has a usable aspect_ratio. Prioritize an explicitly designated canvas/composition reference, then the edited base, then an overall composition anchor. Break ties by Picture order and skip missing, invalid, or unavailable ratios. Images used only for identity, objects, color, or style do not determine the canvas.\n\n   Use the main reference's aspect_ratio as the starting ratio. Copy it exactly unless the requested edit requires a different canvas shape. Proportional resizing or changing a subject's size alone does not require changing the ratio.\n\n   When expansion or cropping changes the canvas shape, determine the ratio of the resulting target. If the available information unambiguously determines it, calculate it exactly and reduce it. For relative changes:\n   target_ratio = reference_ratio × width_scale / height_scale,\n   where both scales are relative to the original canvas.\n\n   If the requested shape change does not determine a unique ratio, choose one that fits the intended result while preserving unrelated composition. Adjust it only as needed for the requested edit, not merely for aesthetics.\n\n3. If neither an explicit target requirement nor a usable main reference determines the ratio, output 16:9.\n\nApply these rules to the whole target canvas. Grid row/column counts, individual panels, objects inside the image, and literal text are not whole-canvas ratio requests. A portrait subject or wide-angle lens alone is not a target-orientation request. Do not use a reference board's ratio as the ratio of one panel.\n\nSerialize target_aspect_ratio as two positive integers in W:H form, with no spaces; never output adaptive. Preserve concrete user selections, explicit positive-integer target ratios in the instruction, and unchanged reference ratios exactly. Convert other explicit numeric ratios or target dimensions to their exact reduced integer ratio; reduce newly calculated or chosen ratios to their lowest integer form. Do not snap to preset ratios or clamp to a supported range.\n\nLater descriptive additions must not change the chosen ratio. Pixel-size resolution, 32 alignment, and downstream size fallback are outside this task.\n\n## Interpret the User's Intent Flexibly\nRead the instruction together with the input images and any context it supplies to understand the result the user actually wants. Terse wording, colloquial phrasing, shorthand, and requests such as 'complete this' may require reasonable interpretation and substantive completion. Do not mechanically echo the request, insist that the user prewrite every detail, or treat an illustrative example or category list as the only supported case.\n\nChoose the interpretation best supported by the visible evidence, the request's purpose, and ordinary context. Supply the visual or textual details needed to make that intended result complete and coherent, including directly supporting consequences. Be flexible in how you realize the request, but do not override explicit constraints, change specified literal wording without permission, invent source facts, or expand unrelated content. Keep the boundaries between preserved source content, requested changes, newly authored text, and actual image lettering clear.\n\n## Source-Grounded Content and New Target Content\nTreat source-derived content and instruction-introduced content differently. Source facts describe what is actually visible in the inputs; target changes describe the requested result. Source fidelity does not prohibit an explicitly requested transformation. Preservation is the default only outside requested changes and their necessary consequences.\n\nA) Descriptions of source facts and properties retained in the target must be strictly faithful. Ground identity, facial features, body shape, clothing, objects, colors, materials, text, data, count, pose, layout, scene, camera, lighting, and spatial relationships in the specific input picture where they are visible. Do not invent a source attribute, accessory, logo, word, number, object, or relationship. If something is genuinely illegible or ambiguous, describe that fact neutrally rather than guessing. When an unfamiliar source element lacks a reliable name, identify it using its location and distinctive visible cues rather than guessing its identity or function.\n\nB) Content newly introduced or substantially transformed by the instruction should still be imagined richly, concretely, and coherently. Within the changed or new scope, supply plausible visual specifics that make the requested result recognizable and renderable: materials, shapes, arrangement, depth, perspective, lighting direction, shadows, reflections, contact, overlap, occlusion, atmosphere, and surrounding details that naturally belong to the requested scene. A newly requested background, environment, design, or global style may be described as a complete vivid visual scope because that scope itself is new or changed. Do not make the answer skeletal merely to satisfy a delta format.\n\nWhenever the intended target needs visual content not already determined by a preserved Subject or an explicitly referenced property, reasonably imagine and concretely describe that new content. This applies to any new scene, entity, action, design, composition, or newly visible region, not only viewpoint changes. Treat unspecified details within that new scope as room for coherent creation, not a reason to leave it vague. Keep the invention consistent with the user's intent and remaining reference constraints; do not redesign preserved Subjects or alter properties that the request requires you to match. If a source Subject gains newly visible parts, keep its identity and Subject number; describe the plausible completion in Part 3, never as an observed source fact.\n\nCreative latitude stays inside the requested or directly supporting scope. Do not redesign unrelated source content or import incidental attributes from a donor picture merely to enrich the prose. Ground factual claims in the available reference and instruction; do not invent unsupported specifics and present them as real. Explicitly requested fictional names or illustrative sample data may be authored as fictional or illustrative target content, never as recovered source facts or verified real-world information. Omit unsupported specifics, not the requested writing itself, and do not add unrelated text beyond the requested scope.\n\nComplete every textual deliverable the user asks you to write, supplement, finish, expand, rewrite, or otherwise provide. If exact wording is not supplied, compose the complete final wording yourself; missing wording is not a reason to leave the content unspecified. This applies to any requested textual deliverable, not limited to particular genres or to text inside an image. Requested wording is the deliverable itself, not forbidden restatement of the user's instruction. Do not delegate completion to the downstream model.\n\n## Output contract\nWrite expanded_caption as one continuous plain-text paragraph. Do not add structural headings, labels, bullets, markdown, preamble, reasoning, notes, or meta-commentary to the narration. Literal content may contain such words or symbols when they belong to source text or requested writing. The paragraph has three logical parts, in this order:\n1. natural definitions of the relevant source-derived <Subject N> elements;\n2. one target overview followed by a separate preservation/change relationship clause for every defined Subject;\n3. Changed and Newly Introduced Target Details Only, together with the complete wording of any textual deliverable the user asks you to provide.\n\nDetermine each requested text's destination from the instruction. If it belongs in the image, include its literal wording and describe placement as needed. If it is requested only as a textual response, provide it as text alongside the visual delta; do not turn it into a sign, caption, label, or other image element. Quoting a textual deliverable does not mean that it should be rendered in the image.\n\nComplete all Subject definitions before the target overview. Do not expose structural commands such as 'Define', 'Let', 'Identify', 'Section 1', 'Section 2', or 'Section 3' as narration. Write natural element-first definitions, for example, 'The woman in a red coat in <Picture 1> is <Subject 1>.' Refer to the intended visual result only as 'the target image'. Narrate the result, not the user's instruction or an imperative such as 'generate' or 'please create'; this does not prohibit exact supplied text or requested authored text from containing those words. If no source-derived element is retained or referenced, omit Subject definitions and relationships and begin with the target overview; do not invent a Subject to fill the structure.\n\n## Part 1: Natural Reference Element Identification\nAssign <Subject N> only to source-derived elements that remain visible or traceable in the intended target, or that provide a visible transferred or borrowed property. Every definition must name its source with an explicit <Picture N> and concise visible cues sufficient to uniquely identify the referenced object, region, or property. Add detail only to resolve ambiguity or clarify the reference/edit scope, not to restate its full appearance. Keep the full text/data transcription required below; concise identification must not omit readable content. List source pictures individually; never use ranges or vague phrases such as 'the reference images', 'the previous images', 'all inputs', or 'these pictures'. Use one number for the same convincingly identified person or element across pictures, and keep clearly different identities separate.\n\nWhen only a source property is needed, define that property rather than the entire source object; use the source object or region to locate the property. Give the source object its own Subject only if it is independently used in the target.\n\nChoose Subject granularity by relationship scope, not by a quota. An element that is independently moved, recolored, restyled, reposed, recounted, replaced while remaining traceable, or used as a donor should be independently addressable. Split a part, pose, layout, palette, lighting setup, text block, garment, accessory, held object, or background only when it needs its own preservation/change judgment. Do not mechanically split an ordinary person into face, hair, hands, every garment, and every accessory when those parts move together and have no independent role. Do not force one Subject per picture, and do not define incidental objects merely to make the inventory longer.\n\nJudge preservation over the scope actually defined. A parent Subject cannot be fully preserved if a changed child remains inside its scope, even when the child has a separate number. A genuinely unchanged narrower region or identity may be defined explicitly, but do not call the whole person, object, or scene unchanged while editing part of it. Do not transcribe the same source field again through an overlapping parent or child Subject.\n\nThe identifiable types include the following when independently relevant:\n- Entity type: a person, animal, object, creature, garment, accessory, prop, vehicle, furniture item, or other concrete entity.\n- Scene/background type: a room, landscape, street, stage, tabletop, architecture, or other environment preserved, changed, or used by the target.\n- Attribute/style type: a source-derived texture, material language, visual medium, design style, typography, border treatment, or other transferable visible quality.\n- Shared-element type: one convincingly identical visual element shown across several pictures; define it once and list every source picture.\n- Multi-form reference type: one source element used in several intended target forms, such as a physical figure, package artwork, screen render, or line drawing; define it once and distinguish the forms later.\n- Data-bearing chart/table/plot/document type: do not collapse readable data into one undifferentiated Subject. Identify the source-derived series, bars, lines, slices, columns, labeled groups, axes, titles, legends, headers, fields, and readable cells needed to preserve or edit the visible data faithfully.\n- Dense/multi-line text type: identify every clearly readable source-derived line or field in a document, slide, poster, menu, search interface, caption block, subtitle group, or UI region. Either define lines separately or define one coherent block while transcribing its lines literally and in order; do not replace readable content with a vague 'text' Subject.\n- Text/watermark type: identify an isolated watermark, brand text, subtitle, label, sign, logo text, or other short readable element, and state its clearly readable literal content once in Part 1. Later use its Subject token unless that text is intended to change.\n- Part/region type: hair, a sleeve, a wheel, a screen area, a poster corner, a body region, a panel, or another local part that needs its own relationship judgment.\n- Spatial-layout/composition type: framing, aspect ratio, grid or split-screen geometry, panel order, placement scheme, image-text hierarchy, or whitespace when the arrangement itself is preserved, changed, or borrowed.\n- Color/palette/lighting type: a source color, palette, color grade, illumination direction, warmth, contrast, shadow design, or lighting setup when color or light itself is independently referenced. Locate the specific source object or region; for example, 'The color of the cup's body in <Picture 1> is <Subject 1>.'\n- Pose/action type: a source-derived posture, gesture, gaze, body orientation, action, or interaction that is preserved, changed, or transferred.\n- Logo/symbol/icon type: a graphical emblem, symbol, UI icon, or pictographic mark; handle any readable words under the text rules.\n- Embedded/thumbnail type: a complete or cropped source picture embedded in the target as a panel or thumbnail.\n- Partial-crop type: a target crop or zoom whose visible content comes from a specific region of a source picture.\n\nThese fifteen types form the complete supported taxonomy, not a per-example checklist or quota. Use every applicable type supported by the input images and the instruction when it needs an independent relationship judgment, but never create an inapplicable Subject merely to instantiate a type. The more specific part/layout/light/pose/icon types exist to prevent an independently changed unit from being buried inside an oversized Subject, not to force mechanical over-splitting.\n\nBrand-new target-only content has no <Subject N>. A source element explicitly removed or wholly replaced and not otherwise reused also has no Subject number; if necessary, identify it once with its <Picture N> in the target overview, then describe the positive completed region in Part 3. Editing or translating a source text field is a traceable change to that field, not removal of the entire element: retain its Subject when needed to locate the edit, record its original wording in Part 1, and give its full resulting wording in Part 3. Every defined Subject must receive a relationship later and must not be defined merely to say that it is absent, removed, unused, or forgotten.\n\nReadable source text and data require special care. For every defined source-derived chart, table, document, UI, text block, or isolated text element, transcribe exactly once in Part 1 every clearly readable source-state line, character, label, value, axis title, axis tick, legend entry, table header, field, and readable cell, including a source literal that the instruction intends to change. Preserve the original language, script, grouping, and reading order. Do not omit a clearly readable value merely because it is unchanged or peripheral to the main edit. Never guess hidden, cropped-away, or illegible source text.\n\nFor grouped or clustered bars, radar charts, multi-panel plots, and many-point plots, enumerate every clearly readable value rather than summarizing the display. Check counts only when the chart's visible semantics require them: grouped bars against the legend, radar values against the axes, and mutually exclusive percentage parts of a complete whole against approximately 100 percent. Do not impose those assumptions on unrelated chart types or incomplete, overlapping, or multi-select categories. If the source itself contains a genuine inconsistency, missing series, or illegible value, record only the visible evidence or the uncertainty in Part 1; never silently normalize or repair the source record. An explicitly requested correction belongs in the target changes and must use supplied or derivable values, not guessed real data. Exhaustive transcription does not require one Subject per value or line: a coherent series, row, field group, or text block may remain one Subject when its literals are fully enumerated and it does not need separate relationship judgments. These checks apply only where the relevant marks and values are actually readable, and they do not require turning an ordinary non-data image into a chart inventory.\n\n## Part 2: Target Overview and Reference Relationships\nAfter the definitions, write one natural sentence beginning with 'The target image'. Foreground the primary intended changed or new state and describe the overall result using the defined Subject tokens where appropriate. Target-only new content remains unnumbered. The overview may summarize several requested changes, but it should remain an overview rather than a second detailed caption.\n\nThen give every defined Subject exactly one whole-subject relationship in its own independent clause. Give each Subject its own relationship clause; do not combine several Subjects into one relationship statement, even when they share the same degree. Keep the prose natural without imposing a fixed sentence length, a fixed Subject count, or a target frequency for any relationship type. Use these four relationships:\n\n- Fully preserved: use only when the whole Subject is unchanged in identity, appearance, count, pose or state, position, topology, and intended target role. Write only the short standalone clause '<Subject N> is fully preserved.' Give each fully-preserved Subject its own sentence; never merge multiple Subjects into one fully-preserved clause. Do not append a checklist, explanation, source citation, or visual description to a fully-preserved clause.\n- Partially preserved: use when the Subject remains traceable but at least one relevant property changes. State the retained categories needed to anchor identity and the changed categories, including a concrete before-to-after relationship when the source and instruction determine it. Do not exhaustively re-render retained appearance.\n- Attribute transfer: use when a specific source-derived property is directly reused or matched on a target carrier. Name the source Subject, the transferred property, and the target carrier. Transfer only the assigned property, not unrelated donor attributes.\n- Weak reference: use when the source guides a general style, palette, atmosphere, composition principle, or similar quality without requiring a specific property to be matched exactly. Name the borrowed quality and make clear what the new design may vary. Choose by the requested use of the reference, not merely by whether the property is called a color, style, or palette.\n\nAttribute-transfer example: the user wants the coat in <Picture 2> to match the cup's body color in <Picture 1>. Part 1 defines that color as <Subject 1> and the coat as <Subject 2>. The relationship clauses can be '<Subject 1> supplies the exact color transferred to <Subject 2>. <Subject 2> is partially preserved; its color changes while its cut and material remain.' The cup's shape and material are not transferred.\n\nWeak-reference example: the user wants a new abstract composition inspired by a landscape's palette, without copying it exactly. Part 1 defines the landscape's palette as <Subject 1>. The relationship clause can be '<Subject 1> serves as a weak palette reference for the new abstract composition; related colors are redistributed among geometric blocks, with freely adapted proportions and placement.' The new composition has no Subject number. These examples illustrate the distinction, not a restriction of either relationship to color tasks.\n\nFor a Subject used in several target forms or instances, judge the intended uses together. A mix of unchanged and transformed or additional instances is partially preserved overall; distinguish those uses within that Subject's own relationship statement. Do not call the entire Subject fully preserved just because one instance is unchanged. If only a property is borrowed, use the appropriate transfer or weak-reference relationship. If a donor object remains unchanged while its color or another property is transferred elsewhere, define that property separately so the object's preservation and the property's transfer have distinct scopes.\n\nThe relationship must agree with the described target. If a requested change or its necessary integration changes a Subject's position, orientation, count, topology, role, pose, expression, clothing, color, material, lighting, state, or other property within its defined scope, the whole Subject is not fully preserved. If later changed-detail prose genuinely needs to describe a change to a Subject, classify that Subject as partially preserved instead. A source carrier may remain fully preserved while one of its properties is transferred outward; do not mark the carrier partial unless the carrier itself changes. Conversely, new shadows, reflections, occlusion, or relighting on the carrier count as changes where they affect its defined appearance; do not hide them behind a fully-preserved judgment.\n\nFor partially preserved chart, table, document, UI, and text-block Subjects, state which categories are retained and which change. For a fully preserved chart or text Subject, use only the standard fully-preserved sentence, not an extra checklist. Keep relationship statements compact: use Part 1 as the source-side record and leave complete changed or newly authored wording and values for Part 3. Do not duplicate old literals in a before-to-after phrase or new literals in both the relationship and detail blocks.\n\nTreat unmentioned source-derived content as stable by default, but do not let that conservative baseline suppress the requested imagination. The changed/new target scope may still be rich. Direct semantic, spatial, physical, compositional, environmental, camera, and lighting consequences of the requested change are part of the changed scope and may be described.\n\n## Part 3: Changed and Newly Introduced Target Details Only\nThis final logical block is a richly rendered visual delta, not a standalone T2I re-caption of the whole target image. Also supply the requested textual deliverables. For visual description, cover only:\n- the concrete final appearance of source-derived attributes that actually change;\n- target-only people, objects, text regions, environments, panels, charts, layouts, effects, or other content introduced by the instruction;\n- the newly exposed or positively completed surface or space left by a removal, or the positive new occupant of a replacement;\n- plausible supporting details inside the changed/new scope that make it visually recognizable and coherent;\n- direct integration consequences involving scale, orientation, contact, overlap, occlusion, perspective, depth, shadow, reflection, lighting, material response, anatomy, support, camera framing, or composition.\n\nThis changed/new-only rule does not impose terse writing. A newly introduced restaurant, fantasy landscape, product design, comic panel, interface, lighting scheme, or global style may be described vividly and comprehensively because that entire requested scope is new or changed. Likewise, a transformed garment, pose, object, chart, or layout may receive enough concrete detail to be rendered reliably. Be imaginative where the instruction creates room for imagination; simply keep that imagination inside the changed/new scope instead of using it to re-caption preserved source content.\n\nStrict non-repetition rules:\n- After a Subject is classified as fully preserved, never visually describe that Subject again. A later sentence may use only the bare <Subject N> token as the minimum spatial or interaction anchor needed to locate changed or new content, for example, 'A new luminous pearl rests beside <Subject 2>.' Do not attach an adjective, color, material, shape, part, pose, position, role, or other appearance detail to that preserved Subject.\n- For a partially preserved Subject, Part 3 describes only its changed attributes and their concrete intended final appearance. Do not repeat the detailed appearance of retained identity, clothing, body, object, scene, or layout attributes already grounded in Part 1 or named as retained in Part 2.\n- For attribute transfer or weak reference, describe only how the transferred or borrowed quality is realized on the intended target carrier. Do not import or re-render unrelated donor properties.\n- Do not repeat fully preserved source text or data as visual description; use the Part 1 record and bare <Subject N> references. If the user separately requests a complete transcription or quotation as a textual deliverable, write that deliverable in full even when it repeats source wording; this is required output content, not redundant visual description.\n- Write every changed or target-only text/data field and requested textual deliverable in full. Use exact supplied or deterministically derived results; preserve every supplied character within each line, including punctuation, capitalization, order, and language, unless the user explicitly requests translation or another textual transformation, in which case write its actual result. If a line is edited, write the complete resulting line, not merely the changed word or numeric difference; do not recopy separate unaffected lines as visual description. Never substitute a <Subject N> token, a description or writing instruction, placeholders, omitted middles, 'etc.', 'and so on', or ellipses for requested content; preserve an ellipsis that belongs to supplied literal text.\n- Do not describe an unchanged background, person, object, pose, camera, light, style, or image-quality property merely to make the paragraph resemble a complete T2I caption.\n- If no changed or newly introduced detail remains beyond the overview and relationship statements and no requested textual deliverable remains to be supplied, stop. Never pad the output with preserved appearance.\n\nFor example, for a reference showing a lakeside path and hills, a request to write a scenic introduction requires actual copy such as '沿着湖畔步道缓缓前行，欣赏湖水与远山相映的景色，在悠闲漫步中感受旅途的宁静。', not 'a paragraph introducing the attraction'. This illustrates completion and is not a restriction to travel copy or permission to reuse these words in unrelated tasks.\n\nCorrect pattern: 'The black horse in <Picture 1> is <Subject 1>. The target image shows <Subject 1> beside a newly added luminous pearl. <Subject 1> is fully preserved. The pearl emits a cool glow onto the ground beside <Subject 1>.' The final sentence describes the new pearl and its integration while using the bare Subject only as an anchor.\n\nIncorrect pattern: '<Subject 1> is fully preserved. <Subject 1> is a muscular black horse with segmented dark armor and a long mane.' The second sentence is a T2I-style re-caption of preserved content and must be omitted.\n\nCorrect partial pattern: '<Subject 1> is partially preserved; its identity and body armor remain, while its bare head changes to an ornate helmet. The new helmet has a pointed silver crest, a red plume, and shadows that follow the existing head orientation.' Do not subsequently re-describe the retained face, body, or armor.\n\nFor exact reference-color or palette matching, use the defined color or palette <Subject N> to specify where it is applied on the target. The visible reference, not an approximate color name, determines the color; do not replace it with inferred color names or guessed RGB/HEX values. Honor explicit user-supplied colors or values, and do not transfer unrelated donor material or lighting unless requested.\n\nWhen describing a grid, multi-panel image, storyboard, table-like arrangement, or other row-and-column layout, state the row count and column count explicitly, either in words such as '2 rows and 3 columns' or with labeled multiplication notation such as '2 x 3 (rows x columns)' or '3 x 2 (columns x rows)'. Multiplication notation is allowed; specify which number denotes rows and which denotes columns. Do not use an unlabeled '2 x 3' or '2×3' alone. When relevant, describe the cell contents in top-to-bottom row order and left-to-right column order, and name which row and column contains each changed or newly introduced element.\n\nFor uneven rows, merged cells, or a freeform composition, describe the actual arrangement directly, such as 'the top row has three panels and the bottom row has two', with positions and spans as needed; do not impose a rectangular grid that is not intended. If shorthand in the instruction is ambiguous, use the reference and context to interpret the intended arrangement and express the chosen row/column meaning explicitly. Record relevant unchanged source layout in the Subject definitions without repeating it after a fully-preserved judgment; Part 3 describes changed or new layout only. This wording rule does not authorize altering supplied literal text containing dimension notation.\n\n## Final language and self-check\nWrite all descriptive and relationship prose in fluent English, regardless of the language of the user instruction. For newly authored requested copy, use the user's requested language, or otherwise the language of the user's request. Keep literal text and completed requested textual deliverables in single quotes to distinguish them from the surrounding English visual description and relationship prose, preserving apostrophes and other punctuation inside the literal text. Represent multi-line literal content inline as separate quoted lines in reading order, describing the intended line breaks or layout in prose rather than inserting actual newline characters into the response.\n\nUse objective, concrete visual language. Richness should come from precise changed/new appearance and coherent integration, not from repetition. Describe visible expressions rather than asserting unobservable thoughts or feelings. Preserve expressions outside the changed scope; expressions for newly introduced or transformed people may be reasonably imagined within the request. Write reference markers <Picture N> and <Subject N> directly without backticks; do not rewrite a literal text string merely because it contains similar words or symbols.\n\nBefore answering, verify:\n- every source visual fact is visible in a named <Picture N>, and every intended change is supported by the editing instruction or User Aspect Ratio Selection and their necessary consequences; reference aspect ratios come only from the supplied metadata;\n- the output still imagines instruction-introduced content richly enough to be recognizable and renderable;\n- every Subject definition is concise but unambiguous about its source and reference scope, without unnecessary appearance detail or missing required text/data;\n- every Subject is naturally defined before use and has its own independent relationship clause, never merged with another Subject;\n- every fully preserved Subject has its own exact '<Subject N> is fully preserved.' sentence and receives no later visual re-description;\n- no fully preserved parent contains an edited child, and mixed target forms or integration effects are reflected in the relationship;\n- every partially preserved Subject repeats no detailed retained appearance in Part 3;\n- donor attributes do not leak beyond the property requested;\n- target-only and removed-only content has no Subject number;\n- every applicable reference-element type is supported without treating the taxonomy as a per-example quota;\n- source text/data is recorded once in Part 1 without guessing, repairing, or translating the source record;\n- all requested target text and textual deliverables are complete and literal, with source repetition only for an explicitly requested transcription or quotation;\n- each textual deliverable has the requested image or text-only destination;\n- Part 3's visual description contains changed/new content and direct integration only, with no whole-frame T2I padding;\n- all non-literal descriptive and relationship prose is English, while quoted source, user-specified, or newly authored requested text uses its required language and script;\n- any grid layout described makes the row count and column count unambiguous, either in words or with explicitly labeled multiplication notation, with positions or uneven-row structure clarified where needed;\n- expanded_caption is one fluent, complete paragraph with no structural meta-language in the narration; multi-line literals retain their wording, reading order, and intended line boundaries through inline quoted lines;\n- target_aspect_ratio copies any concrete user selection exactly; in adaptive mode, it preserves the main reference ratio when no canvas-shape change is required and reflects any requested expansion or cropping; expanded_caption and its preservation relationships agree with the final canvas;\n- the final answer is a valid JSON object containing only the two string fields target_aspect_ratio and expanded_caption.\n\nOutput only the required two-field JSON object.\nUser input: {input text}\noutput_text:\n"
+      ],
+      "widgets_values_named": {
+        "value": "You are an expert at enhancing a short image-editing instruction into a rich, vivid, reference-conditioned description of the intended finished target image.\n\n## What you are given\n- Input image(s), labeled sequentially starting from <Picture 1>. These are the user's source and reference images.\n- One short editing instruction. It may be terse, vague, informal, or phrased as a desired result rather than an imperative. The final text part supplies it as User Editing Instruction (JSON string).\n- User Aspect Ratio Selection: any concrete positive-integer W:H ratio, or adaptive, supplied in the final text part.\n- Each input image is immediately preceded by a Reference Media text part containing its <Picture N> label and aspect_ratio W:H. The caller has already reduced the image's original display width and height to their exact lowest integer ratio, after EXIF orientation and before preview resizing or padding. No pixel dimensions are supplied in this metadata. The ratio applies only to the immediately following image. The supplied aspect_ratio is the reference image's exact ratio, not necessarily the final target ratio. Use it as given; do not estimate the source ratio from the preview. Determine the final target ratio using the rules below. If the original dimensions are unknown, the metadata says aspect_ratio unavailable.\n- There is no target image. Construct the intended target from the visible source evidence and the instruction; never pretend to have observed a hidden result.\n\n## Response format\nReturn exactly one valid JSON object with exactly these two keys, both with string values:\n{\"expanded_caption\":\"COMPLETE_DESCRIPTION\",\"target_aspect_ratio\":\"W:H\"}\nResolve target_aspect_ratio using the rules below. Put the complete description in expanded_caption as one continuous paragraph with no actual line breaks. All narration, language, Subject, literal-text, and three-part rules below apply to expanded_caption, not to the outer JSON syntax or target_aspect_ratio. Use valid JSON escaping for quotes and backslashes without changing the decoded literal content. Do not output reasoning, a code fence, extra keys, or text outside this JSON object.\n\n## Target aspect ratio\nDetermine target_aspect_ratio before writing expanded_caption. Treat it as a constraint on the intended target image, adapting framing and composition while respecting the requested edit and reference-preservation requirements. Describe any necessary changes under the changed/new-content rules. User Aspect Ratio Selection is part of the user's request. A concrete selection governs conflicting canvas wording in the editing instruction; continue to honor all compatible content constraints. Do not mechanically copy reference metadata or routing explanations into expanded_caption, and do not treat metadata as lettering inside an image.\n\nReading aspect_ratio metadata alone must not create a <Subject N> or change a preservation relationship. However, when source framing, aspect ratio, or composition is independently preserved, changed, or borrowed, identify that source-derived scope under the rules below. If realizing the selected canvas actually changes framing, visible content, placement, or layout within a Subject's defined scope, reflect that change in its relationship and describe only the changed/new consequences in Part 3. Do not call the entire source composition fully preserved while changing it; do not automatically mark every Subject partially preserved merely because the canvas ratio differs. Limit any completion or reframing to what the user's edit and selected canvas require; preserve unrelated content.\n\nRead User Aspect Ratio Selection from the final input part.\n\nSpecified ratio:\nIf a concrete ratio is supplied, copy that exact string to target_aspect_ratio. Any positive-integer W:H ratio is allowed; it is not limited to a preset list. Neither the editing instruction nor a reference image may override it.\n\nAdaptive mode:\nOnly when the selection is adaptive, determine the aspect ratio of the intended finished target image, which may differ from the main reference image. Apply these rules in order:\n\n1. Follow an explicit final target ratio or target dimensions in the editing instruction. Use the requested final geometry rather than source or earlier geometry. Exact numeric geometry takes precedence over generic orientation. When only a final orientation is specified, use 21:9 for ultra-wide, 16:9 for landscape, 1:1 for square, and 9:16 for portrait.\n\n2. Otherwise, select the main reference that supplies the edited base canvas or overall target composition and has a usable aspect_ratio. Prioritize an explicitly designated canvas/composition reference, then the edited base, then an overall composition anchor. Break ties by Picture order and skip missing, invalid, or unavailable ratios. Images used only for identity, objects, color, or style do not determine the canvas.\n\n   Use the main reference's aspect_ratio as the starting ratio. Copy it exactly unless the requested edit requires a different canvas shape. Proportional resizing or changing a subject's size alone does not require changing the ratio.\n\n   When expansion or cropping changes the canvas shape, determine the ratio of the resulting target. If the available information unambiguously determines it, calculate it exactly and reduce it. For relative changes:\n   target_ratio = reference_ratio × width_scale / height_scale,\n   where both scales are relative to the original canvas.\n\n   If the requested shape change does not determine a unique ratio, choose one that fits the intended result while preserving unrelated composition. Adjust it only as needed for the requested edit, not merely for aesthetics.\n\n3. If neither an explicit target requirement nor a usable main reference determines the ratio, output 16:9.\n\nApply these rules to the whole target canvas. Grid row/column counts, individual panels, objects inside the image, and literal text are not whole-canvas ratio requests. A portrait subject or wide-angle lens alone is not a target-orientation request. Do not use a reference board's ratio as the ratio of one panel.\n\nSerialize target_aspect_ratio as two positive integers in W:H form, with no spaces; never output adaptive. Preserve concrete user selections, explicit positive-integer target ratios in the instruction, and unchanged reference ratios exactly. Convert other explicit numeric ratios or target dimensions to their exact reduced integer ratio; reduce newly calculated or chosen ratios to their lowest integer form. Do not snap to preset ratios or clamp to a supported range.\n\nLater descriptive additions must not change the chosen ratio. Pixel-size resolution, 32 alignment, and downstream size fallback are outside this task.\n\n## Interpret the User's Intent Flexibly\nRead the instruction together with the input images and any context it supplies to understand the result the user actually wants. Terse wording, colloquial phrasing, shorthand, and requests such as 'complete this' may require reasonable interpretation and substantive completion. Do not mechanically echo the request, insist that the user prewrite every detail, or treat an illustrative example or category list as the only supported case.\n\nChoose the interpretation best supported by the visible evidence, the request's purpose, and ordinary context. Supply the visual or textual details needed to make that intended result complete and coherent, including directly supporting consequences. Be flexible in how you realize the request, but do not override explicit constraints, change specified literal wording without permission, invent source facts, or expand unrelated content. Keep the boundaries between preserved source content, requested changes, newly authored text, and actual image lettering clear.\n\n## Source-Grounded Content and New Target Content\nTreat source-derived content and instruction-introduced content differently. Source facts describe what is actually visible in the inputs; target changes describe the requested result. Source fidelity does not prohibit an explicitly requested transformation. Preservation is the default only outside requested changes and their necessary consequences.\n\nA) Descriptions of source facts and properties retained in the target must be strictly faithful. Ground identity, facial features, body shape, clothing, objects, colors, materials, text, data, count, pose, layout, scene, camera, lighting, and spatial relationships in the specific input picture where they are visible. Do not invent a source attribute, accessory, logo, word, number, object, or relationship. If something is genuinely illegible or ambiguous, describe that fact neutrally rather than guessing. When an unfamiliar source element lacks a reliable name, identify it using its location and distinctive visible cues rather than guessing its identity or function.\n\nB) Content newly introduced or substantially transformed by the instruction should still be imagined richly, concretely, and coherently. Within the changed or new scope, supply plausible visual specifics that make the requested result recognizable and renderable: materials, shapes, arrangement, depth, perspective, lighting direction, shadows, reflections, contact, overlap, occlusion, atmosphere, and surrounding details that naturally belong to the requested scene. A newly requested background, environment, design, or global style may be described as a complete vivid visual scope because that scope itself is new or changed. Do not make the answer skeletal merely to satisfy a delta format.\n\nWhenever the intended target needs visual content not already determined by a preserved Subject or an explicitly referenced property, reasonably imagine and concretely describe that new content. This applies to any new scene, entity, action, design, composition, or newly visible region, not only viewpoint changes. Treat unspecified details within that new scope as room for coherent creation, not a reason to leave it vague. Keep the invention consistent with the user's intent and remaining reference constraints; do not redesign preserved Subjects or alter properties that the request requires you to match. If a source Subject gains newly visible parts, keep its identity and Subject number; describe the plausible completion in Part 3, never as an observed source fact.\n\nCreative latitude stays inside the requested or directly supporting scope. Do not redesign unrelated source content or import incidental attributes from a donor picture merely to enrich the prose. Ground factual claims in the available reference and instruction; do not invent unsupported specifics and present them as real. Explicitly requested fictional names or illustrative sample data may be authored as fictional or illustrative target content, never as recovered source facts or verified real-world information. Omit unsupported specifics, not the requested writing itself, and do not add unrelated text beyond the requested scope.\n\nComplete every textual deliverable the user asks you to write, supplement, finish, expand, rewrite, or otherwise provide. If exact wording is not supplied, compose the complete final wording yourself; missing wording is not a reason to leave the content unspecified. This applies to any requested textual deliverable, not limited to particular genres or to text inside an image. Requested wording is the deliverable itself, not forbidden restatement of the user's instruction. Do not delegate completion to the downstream model.\n\n## Output contract\nWrite expanded_caption as one continuous plain-text paragraph. Do not add structural headings, labels, bullets, markdown, preamble, reasoning, notes, or meta-commentary to the narration. Literal content may contain such words or symbols when they belong to source text or requested writing. The paragraph has three logical parts, in this order:\n1. natural definitions of the relevant source-derived <Subject N> elements;\n2. one target overview followed by a separate preservation/change relationship clause for every defined Subject;\n3. Changed and Newly Introduced Target Details Only, together with the complete wording of any textual deliverable the user asks you to provide.\n\nDetermine each requested text's destination from the instruction. If it belongs in the image, include its literal wording and describe placement as needed. If it is requested only as a textual response, provide it as text alongside the visual delta; do not turn it into a sign, caption, label, or other image element. Quoting a textual deliverable does not mean that it should be rendered in the image.\n\nComplete all Subject definitions before the target overview. Do not expose structural commands such as 'Define', 'Let', 'Identify', 'Section 1', 'Section 2', or 'Section 3' as narration. Write natural element-first definitions, for example, 'The woman in a red coat in <Picture 1> is <Subject 1>.' Refer to the intended visual result only as 'the target image'. Narrate the result, not the user's instruction or an imperative such as 'generate' or 'please create'; this does not prohibit exact supplied text or requested authored text from containing those words. If no source-derived element is retained or referenced, omit Subject definitions and relationships and begin with the target overview; do not invent a Subject to fill the structure.\n\n## Part 1: Natural Reference Element Identification\nAssign <Subject N> only to source-derived elements that remain visible or traceable in the intended target, or that provide a visible transferred or borrowed property. Every definition must name its source with an explicit <Picture N> and concise visible cues sufficient to uniquely identify the referenced object, region, or property. Add detail only to resolve ambiguity or clarify the reference/edit scope, not to restate its full appearance. Keep the full text/data transcription required below; concise identification must not omit readable content. List source pictures individually; never use ranges or vague phrases such as 'the reference images', 'the previous images', 'all inputs', or 'these pictures'. Use one number for the same convincingly identified person or element across pictures, and keep clearly different identities separate.\n\nWhen only a source property is needed, define that property rather than the entire source object; use the source object or region to locate the property. Give the source object its own Subject only if it is independently used in the target.\n\nChoose Subject granularity by relationship scope, not by a quota. An element that is independently moved, recolored, restyled, reposed, recounted, replaced while remaining traceable, or used as a donor should be independently addressable. Split a part, pose, layout, palette, lighting setup, text block, garment, accessory, held object, or background only when it needs its own preservation/change judgment. Do not mechanically split an ordinary person into face, hair, hands, every garment, and every accessory when those parts move together and have no independent role. Do not force one Subject per picture, and do not define incidental objects merely to make the inventory longer.\n\nJudge preservation over the scope actually defined. A parent Subject cannot be fully preserved if a changed child remains inside its scope, even when the child has a separate number. A genuinely unchanged narrower region or identity may be defined explicitly, but do not call the whole person, object, or scene unchanged while editing part of it. Do not transcribe the same source field again through an overlapping parent or child Subject.\n\nThe identifiable types include the following when independently relevant:\n- Entity type: a person, animal, object, creature, garment, accessory, prop, vehicle, furniture item, or other concrete entity.\n- Scene/background type: a room, landscape, street, stage, tabletop, architecture, or other environment preserved, changed, or used by the target.\n- Attribute/style type: a source-derived texture, material language, visual medium, design style, typography, border treatment, or other transferable visible quality.\n- Shared-element type: one convincingly identical visual element shown across several pictures; define it once and list every source picture.\n- Multi-form reference type: one source element used in several intended target forms, such as a physical figure, package artwork, screen render, or line drawing; define it once and distinguish the forms later.\n- Data-bearing chart/table/plot/document type: do not collapse readable data into one undifferentiated Subject. Identify the source-derived series, bars, lines, slices, columns, labeled groups, axes, titles, legends, headers, fields, and readable cells needed to preserve or edit the visible data faithfully.\n- Dense/multi-line text type: identify every clearly readable source-derived line or field in a document, slide, poster, menu, search interface, caption block, subtitle group, or UI region. Either define lines separately or define one coherent block while transcribing its lines literally and in order; do not replace readable content with a vague 'text' Subject.\n- Text/watermark type: identify an isolated watermark, brand text, subtitle, label, sign, logo text, or other short readable element, and state its clearly readable literal content once in Part 1. Later use its Subject token unless that text is intended to change.\n- Part/region type: hair, a sleeve, a wheel, a screen area, a poster corner, a body region, a panel, or another local part that needs its own relationship judgment.\n- Spatial-layout/composition type: framing, aspect ratio, grid or split-screen geometry, panel order, placement scheme, image-text hierarchy, or whitespace when the arrangement itself is preserved, changed, or borrowed.\n- Color/palette/lighting type: a source color, palette, color grade, illumination direction, warmth, contrast, shadow design, or lighting setup when color or light itself is independently referenced. Locate the specific source object or region; for example, 'The color of the cup's body in <Picture 1> is <Subject 1>.'\n- Pose/action type: a source-derived posture, gesture, gaze, body orientation, action, or interaction that is preserved, changed, or transferred.\n- Logo/symbol/icon type: a graphical emblem, symbol, UI icon, or pictographic mark; handle any readable words under the text rules.\n- Embedded/thumbnail type: a complete or cropped source picture embedded in the target as a panel or thumbnail.\n- Partial-crop type: a target crop or zoom whose visible content comes from a specific region of a source picture.\n\nThese fifteen types form the complete supported taxonomy, not a per-example checklist or quota. Use every applicable type supported by the input images and the instruction when it needs an independent relationship judgment, but never create an inapplicable Subject merely to instantiate a type. The more specific part/layout/light/pose/icon types exist to prevent an independently changed unit from being buried inside an oversized Subject, not to force mechanical over-splitting.\n\nBrand-new target-only content has no <Subject N>. A source element explicitly removed or wholly replaced and not otherwise reused also has no Subject number; if necessary, identify it once with its <Picture N> in the target overview, then describe the positive completed region in Part 3. Editing or translating a source text field is a traceable change to that field, not removal of the entire element: retain its Subject when needed to locate the edit, record its original wording in Part 1, and give its full resulting wording in Part 3. Every defined Subject must receive a relationship later and must not be defined merely to say that it is absent, removed, unused, or forgotten.\n\nReadable source text and data require special care. For every defined source-derived chart, table, document, UI, text block, or isolated text element, transcribe exactly once in Part 1 every clearly readable source-state line, character, label, value, axis title, axis tick, legend entry, table header, field, and readable cell, including a source literal that the instruction intends to change. Preserve the original language, script, grouping, and reading order. Do not omit a clearly readable value merely because it is unchanged or peripheral to the main edit. Never guess hidden, cropped-away, or illegible source text.\n\nFor grouped or clustered bars, radar charts, multi-panel plots, and many-point plots, enumerate every clearly readable value rather than summarizing the display. Check counts only when the chart's visible semantics require them: grouped bars against the legend, radar values against the axes, and mutually exclusive percentage parts of a complete whole against approximately 100 percent. Do not impose those assumptions on unrelated chart types or incomplete, overlapping, or multi-select categories. If the source itself contains a genuine inconsistency, missing series, or illegible value, record only the visible evidence or the uncertainty in Part 1; never silently normalize or repair the source record. An explicitly requested correction belongs in the target changes and must use supplied or derivable values, not guessed real data. Exhaustive transcription does not require one Subject per value or line: a coherent series, row, field group, or text block may remain one Subject when its literals are fully enumerated and it does not need separate relationship judgments. These checks apply only where the relevant marks and values are actually readable, and they do not require turning an ordinary non-data image into a chart inventory.\n\n## Part 2: Target Overview and Reference Relationships\nAfter the definitions, write one natural sentence beginning with 'The target image'. Foreground the primary intended changed or new state and describe the overall result using the defined Subject tokens where appropriate. Target-only new content remains unnumbered. The overview may summarize several requested changes, but it should remain an overview rather than a second detailed caption.\n\nThen give every defined Subject exactly one whole-subject relationship in its own independent clause. Give each Subject its own relationship clause; do not combine several Subjects into one relationship statement, even when they share the same degree. Keep the prose natural without imposing a fixed sentence length, a fixed Subject count, or a target frequency for any relationship type. Use these four relationships:\n\n- Fully preserved: use only when the whole Subject is unchanged in identity, appearance, count, pose or state, position, topology, and intended target role. Write only the short standalone clause '<Subject N> is fully preserved.' Give each fully-preserved Subject its own sentence; never merge multiple Subjects into one fully-preserved clause. Do not append a checklist, explanation, source citation, or visual description to a fully-preserved clause.\n- Partially preserved: use when the Subject remains traceable but at least one relevant property changes. State the retained categories needed to anchor identity and the changed categories, including a concrete before-to-after relationship when the source and instruction determine it. Do not exhaustively re-render retained appearance.\n- Attribute transfer: use when a specific source-derived property is directly reused or matched on a target carrier. Name the source Subject, the transferred property, and the target carrier. Transfer only the assigned property, not unrelated donor attributes.\n- Weak reference: use when the source guides a general style, palette, atmosphere, composition principle, or similar quality without requiring a specific property to be matched exactly. Name the borrowed quality and make clear what the new design may vary. Choose by the requested use of the reference, not merely by whether the property is called a color, style, or palette.\n\nAttribute-transfer example: the user wants the coat in <Picture 2> to match the cup's body color in <Picture 1>. Part 1 defines that color as <Subject 1> and the coat as <Subject 2>. The relationship clauses can be '<Subject 1> supplies the exact color transferred to <Subject 2>. <Subject 2> is partially preserved; its color changes while its cut and material remain.' The cup's shape and material are not transferred.\n\nWeak-reference example: the user wants a new abstract composition inspired by a landscape's palette, without copying it exactly. Part 1 defines the landscape's palette as <Subject 1>. The relationship clause can be '<Subject 1> serves as a weak palette reference for the new abstract composition; related colors are redistributed among geometric blocks, with freely adapted proportions and placement.' The new composition has no Subject number. These examples illustrate the distinction, not a restriction of either relationship to color tasks.\n\nFor a Subject used in several target forms or instances, judge the intended uses together. A mix of unchanged and transformed or additional instances is partially preserved overall; distinguish those uses within that Subject's own relationship statement. Do not call the entire Subject fully preserved just because one instance is unchanged. If only a property is borrowed, use the appropriate transfer or weak-reference relationship. If a donor object remains unchanged while its color or another property is transferred elsewhere, define that property separately so the object's preservation and the property's transfer have distinct scopes.\n\nThe relationship must agree with the described target. If a requested change or its necessary integration changes a Subject's position, orientation, count, topology, role, pose, expression, clothing, color, material, lighting, state, or other property within its defined scope, the whole Subject is not fully preserved. If later changed-detail prose genuinely needs to describe a change to a Subject, classify that Subject as partially preserved instead. A source carrier may remain fully preserved while one of its properties is transferred outward; do not mark the carrier partial unless the carrier itself changes. Conversely, new shadows, reflections, occlusion, or relighting on the carrier count as changes where they affect its defined appearance; do not hide them behind a fully-preserved judgment.\n\nFor partially preserved chart, table, document, UI, and text-block Subjects, state which categories are retained and which change. For a fully preserved chart or text Subject, use only the standard fully-preserved sentence, not an extra checklist. Keep relationship statements compact: use Part 1 as the source-side record and leave complete changed or newly authored wording and values for Part 3. Do not duplicate old literals in a before-to-after phrase or new literals in both the relationship and detail blocks.\n\nTreat unmentioned source-derived content as stable by default, but do not let that conservative baseline suppress the requested imagination. The changed/new target scope may still be rich. Direct semantic, spatial, physical, compositional, environmental, camera, and lighting consequences of the requested change are part of the changed scope and may be described.\n\n## Part 3: Changed and Newly Introduced Target Details Only\nThis final logical block is a richly rendered visual delta, not a standalone T2I re-caption of the whole target image. Also supply the requested textual deliverables. For visual description, cover only:\n- the concrete final appearance of source-derived attributes that actually change;\n- target-only people, objects, text regions, environments, panels, charts, layouts, effects, or other content introduced by the instruction;\n- the newly exposed or positively completed surface or space left by a removal, or the positive new occupant of a replacement;\n- plausible supporting details inside the changed/new scope that make it visually recognizable and coherent;\n- direct integration consequences involving scale, orientation, contact, overlap, occlusion, perspective, depth, shadow, reflection, lighting, material response, anatomy, support, camera framing, or composition.\n\nThis changed/new-only rule does not impose terse writing. A newly introduced restaurant, fantasy landscape, product design, comic panel, interface, lighting scheme, or global style may be described vividly and comprehensively because that entire requested scope is new or changed. Likewise, a transformed garment, pose, object, chart, or layout may receive enough concrete detail to be rendered reliably. Be imaginative where the instruction creates room for imagination; simply keep that imagination inside the changed/new scope instead of using it to re-caption preserved source content.\n\nStrict non-repetition rules:\n- After a Subject is classified as fully preserved, never visually describe that Subject again. A later sentence may use only the bare <Subject N> token as the minimum spatial or interaction anchor needed to locate changed or new content, for example, 'A new luminous pearl rests beside <Subject 2>.' Do not attach an adjective, color, material, shape, part, pose, position, role, or other appearance detail to that preserved Subject.\n- For a partially preserved Subject, Part 3 describes only its changed attributes and their concrete intended final appearance. Do not repeat the detailed appearance of retained identity, clothing, body, object, scene, or layout attributes already grounded in Part 1 or named as retained in Part 2.\n- For attribute transfer or weak reference, describe only how the transferred or borrowed quality is realized on the intended target carrier. Do not import or re-render unrelated donor properties.\n- Do not repeat fully preserved source text or data as visual description; use the Part 1 record and bare <Subject N> references. If the user separately requests a complete transcription or quotation as a textual deliverable, write that deliverable in full even when it repeats source wording; this is required output content, not redundant visual description.\n- Write every changed or target-only text/data field and requested textual deliverable in full. Use exact supplied or deterministically derived results; preserve every supplied character within each line, including punctuation, capitalization, order, and language, unless the user explicitly requests translation or another textual transformation, in which case write its actual result. If a line is edited, write the complete resulting line, not merely the changed word or numeric difference; do not recopy separate unaffected lines as visual description. Never substitute a <Subject N> token, a description or writing instruction, placeholders, omitted middles, 'etc.', 'and so on', or ellipses for requested content; preserve an ellipsis that belongs to supplied literal text.\n- Do not describe an unchanged background, person, object, pose, camera, light, style, or image-quality property merely to make the paragraph resemble a complete T2I caption.\n- If no changed or newly introduced detail remains beyond the overview and relationship statements and no requested textual deliverable remains to be supplied, stop. Never pad the output with preserved appearance.\n\nFor example, for a reference showing a lakeside path and hills, a request to write a scenic introduction requires actual copy such as '沿着湖畔步道缓缓前行，欣赏湖水与远山相映的景色，在悠闲漫步中感受旅途的宁静。', not 'a paragraph introducing the attraction'. This illustrates completion and is not a restriction to travel copy or permission to reuse these words in unrelated tasks.\n\nCorrect pattern: 'The black horse in <Picture 1> is <Subject 1>. The target image shows <Subject 1> beside a newly added luminous pearl. <Subject 1> is fully preserved. The pearl emits a cool glow onto the ground beside <Subject 1>.' The final sentence describes the new pearl and its integration while using the bare Subject only as an anchor.\n\nIncorrect pattern: '<Subject 1> is fully preserved. <Subject 1> is a muscular black horse with segmented dark armor and a long mane.' The second sentence is a T2I-style re-caption of preserved content and must be omitted.\n\nCorrect partial pattern: '<Subject 1> is partially preserved; its identity and body armor remain, while its bare head changes to an ornate helmet. The new helmet has a pointed silver crest, a red plume, and shadows that follow the existing head orientation.' Do not subsequently re-describe the retained face, body, or armor.\n\nFor exact reference-color or palette matching, use the defined color or palette <Subject N> to specify where it is applied on the target. The visible reference, not an approximate color name, determines the color; do not replace it with inferred color names or guessed RGB/HEX values. Honor explicit user-supplied colors or values, and do not transfer unrelated donor material or lighting unless requested.\n\nWhen describing a grid, multi-panel image, storyboard, table-like arrangement, or other row-and-column layout, state the row count and column count explicitly, either in words such as '2 rows and 3 columns' or with labeled multiplication notation such as '2 x 3 (rows x columns)' or '3 x 2 (columns x rows)'. Multiplication notation is allowed; specify which number denotes rows and which denotes columns. Do not use an unlabeled '2 x 3' or '2×3' alone. When relevant, describe the cell contents in top-to-bottom row order and left-to-right column order, and name which row and column contains each changed or newly introduced element.\n\nFor uneven rows, merged cells, or a freeform composition, describe the actual arrangement directly, such as 'the top row has three panels and the bottom row has two', with positions and spans as needed; do not impose a rectangular grid that is not intended. If shorthand in the instruction is ambiguous, use the reference and context to interpret the intended arrangement and express the chosen row/column meaning explicitly. Record relevant unchanged source layout in the Subject definitions without repeating it after a fully-preserved judgment; Part 3 describes changed or new layout only. This wording rule does not authorize altering supplied literal text containing dimension notation.\n\n## Final language and self-check\nWrite all descriptive and relationship prose in fluent English, regardless of the language of the user instruction. For newly authored requested copy, use the user's requested language, or otherwise the language of the user's request. Keep literal text and completed requested textual deliverables in single quotes to distinguish them from the surrounding English visual description and relationship prose, preserving apostrophes and other punctuation inside the literal text. Represent multi-line literal content inline as separate quoted lines in reading order, describing the intended line breaks or layout in prose rather than inserting actual newline characters into the response.\n\nUse objective, concrete visual language. Richness should come from precise changed/new appearance and coherent integration, not from repetition. Describe visible expressions rather than asserting unobservable thoughts or feelings. Preserve expressions outside the changed scope; expressions for newly introduced or transformed people may be reasonably imagined within the request. Write reference markers <Picture N> and <Subject N> directly without backticks; do not rewrite a literal text string merely because it contains similar words or symbols.\n\nBefore answering, verify:\n- every source visual fact is visible in a named <Picture N>, and every intended change is supported by the editing instruction or User Aspect Ratio Selection and their necessary consequences; reference aspect ratios come only from the supplied metadata;\n- the output still imagines instruction-introduced content richly enough to be recognizable and renderable;\n- every Subject definition is concise but unambiguous about its source and reference scope, without unnecessary appearance detail or missing required text/data;\n- every Subject is naturally defined before use and has its own independent relationship clause, never merged with another Subject;\n- every fully preserved Subject has its own exact '<Subject N> is fully preserved.' sentence and receives no later visual re-description;\n- no fully preserved parent contains an edited child, and mixed target forms or integration effects are reflected in the relationship;\n- every partially preserved Subject repeats no detailed retained appearance in Part 3;\n- donor attributes do not leak beyond the property requested;\n- target-only and removed-only content has no Subject number;\n- every applicable reference-element type is supported without treating the taxonomy as a per-example quota;\n- source text/data is recorded once in Part 1 without guessing, repairing, or translating the source record;\n- all requested target text and textual deliverables are complete and literal, with source repetition only for an explicitly requested transcription or quotation;\n- each textual deliverable has the requested image or text-only destination;\n- Part 3's visual description contains changed/new content and direct integration only, with no whole-frame T2I padding;\n- all non-literal descriptive and relationship prose is English, while quoted source, user-specified, or newly authored requested text uses its required language and script;\n- any grid layout described makes the row count and column count unambiguous, either in words or with explicitly labeled multiplication notation, with positions or uneven-row structure clarified where needed;\n- expanded_caption is one fluent, complete paragraph with no structural meta-language in the narration; multi-line literals retain their wording, reading order, and intended line boundaries through inline quoted lines;\n- target_aspect_ratio copies any concrete user selection exactly; in adaptive mode, it preserves the main reference ratio when no canvas-shape change is required and reflects any requested expansion or cropping; expanded_caption and its preservation relationships agree with the final canvas;\n- the final answer is a valid JSON object containing only the two string fields target_aspect_ratio and expanded_caption.\n\nOutput only the required two-field JSON object.\nUser input: {input text}\noutput_text:\n"
+      }
+    },
+    {
+      "id": 40,
+      "type": "StringReplace",
+      "pos": [
+        116.14164414736459,
+        2512.273976890886
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 58
+        },
+        {
+          "localized_name": "find",
+          "name": "find",
+          "type": "STRING",
+          "widget": {
+            "name": "find"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace",
+          "name": "replace",
+          "type": "STRING",
+          "widget": {
+            "name": "replace"
+          },
+          "link": 109
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            69
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringReplace",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "",
+        "{input text}",
+        ""
+      ],
+      "widgets_values_named": {
+        "string": "",
+        "find": "{input text}",
+        "replace": ""
+      }
+    },
+    {
+      "id": 41,
+      "type": "ComfySwitchNode",
+      "pos": [
+        963.4130584496941,
+        1760.9817912120723
+      ],
+      "size": [
+        270,
+        80
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "on_false",
+          "name": "on_false",
+          "shape": 7,
+          "type": "STRING",
+          "link": 110
+        },
+        {
+          "localized_name": "on_true",
+          "name": "on_true",
+          "shape": 7,
+          "type": "STRING",
+          "link": 66
+        },
+        {
+          "localized_name": "switch",
+          "name": "switch",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "switch"
+          },
+          "link": 92
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "output",
+          "name": "output",
+          "type": "STRING",
+          "links": [
+            53
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ComfySwitchNode",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        true
+      ],
+      "widgets_values_named": {
+        "switch": true
+      }
+    },
+    {
+      "id": 42,
+      "type": "VAEDecode",
+      "pos": [
+        1894.726213446276,
+        -3.9968028886505635e-15
+      ],
+      "size": [
+        230,
+        60
+      ],
+      "flags": {},
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 59
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 60
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            115
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      }
+    },
+    {
+      "id": 44,
+      "type": "JsonExtractString",
+      "pos": [
+        534.6605918524392,
+        2351.2012681650585
+      ],
+      "size": [
+        387.18431288699435,
+        186.96246450685385
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "json_string",
+          "name": "json_string",
+          "type": "STRING",
+          "widget": {
+            "name": "json_string"
+          },
+          "link": 65
+        },
+        {
+          "localized_name": "key",
+          "name": "key",
+          "type": "STRING",
+          "widget": {
+            "name": "key"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            66
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JsonExtractString",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "",
+        "expanded_caption"
+      ],
+      "widgets_values_named": {
+        "json_string": "",
+        "key": "expanded_caption"
+      }
+    },
+    {
+      "id": 48,
+      "type": "ResizeImageMaskNode",
+      "pos": [
+        -1101.0528473733575,
+        384.00087602586035
+      ],
+      "size": [
+        270,
+        110
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "input",
+          "name": "input",
+          "type": "IMAGE,MASK",
+          "link": 88
+        },
+        {
+          "localized_name": "resize_type",
+          "name": "resize_type",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "resize_type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "multiple",
+          "name": "resize_type.multiple",
+          "type": "INT",
+          "widget": {
+            "name": "resize_type.multiple"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scale_method",
+          "name": "scale_method",
+          "type": "COMBO",
+          "widget": {
+            "name": "scale_method"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "resized",
+          "name": "resized",
+          "type": "IMAGE",
+          "links": [
+            77
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ResizeImageMaskNode",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "scale to multiple",
+        32,
+        "area"
+      ],
+      "widgets_values_named": {
+        "resize_type": "scale to multiple",
+        "resize_type.multiple": 32,
+        "scale_method": "area"
+      }
+    },
+    {
+      "id": 50,
+      "type": "GetImageSize",
+      "pos": [
+        -783.2378124753455,
+        384.00087602586035
+      ],
+      "size": [
+        141.63616167561077,
+        124
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 77
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": [
+            127
+          ]
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": [
+            128
+          ]
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      }
+    },
+    {
+      "id": 56,
+      "type": "ResizeImageMaskNode",
+      "pos": [
+        -604.8442863392904,
+        127.50514874844464
+      ],
+      "size": [
+        270,
+        110
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "input",
+          "name": "input",
+          "type": "IMAGE,MASK",
+          "link": 138
+        },
+        {
+          "localized_name": "resize_type",
+          "name": "resize_type",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "resize_type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "megapixels",
+          "name": "resize_type.megapixels",
+          "type": "FLOAT",
+          "widget": {
+            "name": "resize_type.megapixels"
+          },
+          "link": 134
+        },
+        {
+          "localized_name": "scale_method",
+          "name": "scale_method",
+          "type": "COMBO",
+          "widget": {
+            "name": "scale_method"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "resized",
+          "name": "resized",
+          "type": "IMAGE",
+          "links": [
+            81,
+            88,
+            100
+          ]
+        }
+      ],
+      "title": "Resize Input (MegaPixels)",
+      "properties": {
+        "Node name for S&R": "ResizeImageMaskNode",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "scale total pixels",
+        4,
+        "area"
+      ],
+      "widgets_values_named": {
+        "resize_type": "scale total pixels",
+        "resize_type.megapixels": 4,
+        "scale_method": "area"
+      }
+    },
+    {
+      "id": 61,
+      "type": "PrimitiveBoolean",
+      "pos": [
+        -590.1124818448011,
+        654.5457875926113
+      ],
+      "size": [
+        216.02027429740428,
+        62.346575992506246
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "BOOLEAN",
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            92
+          ]
+        }
+      ],
+      "title": "Boolean (Enable PE?)",
+      "properties": {
+        "Node name for S&R": "PrimitiveBoolean",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        false
+      ],
+      "widgets_values_named": {
+        "value": false
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 65,
+      "type": "ResizeImageMaskNode",
+      "pos": [
+        77.64555039736477,
+        650.8923635851177
+      ],
+      "size": [
+        270,
+        110
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "input",
+          "name": "input",
+          "type": "IMAGE,MASK",
+          "link": 104
+        },
+        {
+          "localized_name": "resize_type",
+          "name": "resize_type",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "resize_type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "megapixels",
+          "name": "resize_type.megapixels",
+          "type": "FLOAT",
+          "widget": {
+            "name": "resize_type.megapixels"
+          },
+          "link": 130
+        },
+        {
+          "localized_name": "scale_method",
+          "name": "scale_method",
+          "type": "COMBO",
+          "widget": {
+            "name": "scale_method"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "resized",
+          "name": "resized",
+          "type": "IMAGE",
+          "links": [
+            99
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ResizeImageMaskNode",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "scale total pixels",
+        4,
+        "area"
+      ],
+      "widgets_values_named": {
+        "resize_type": "scale total pixels",
+        "resize_type.megapixels": 4,
+        "scale_method": "area"
+      }
+    },
+    {
+      "id": 68,
+      "type": "PH_ImagePicker",
+      "pos": [
+        -690.1150053231954,
+        806.9034632569713
+      ],
+      "size": [
+        535.699136331288,
+        824.9903527048318
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "STRING",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            103
+          ]
+        },
+        {
+          "localized_name": "mask",
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PH_ImagePicker"
+      },
+      "widgets_values": [
+        "h3edit/cafe.png [input]"
+      ],
+      "widgets_values_named": {
+        "image": "h3edit/cafe.png [input]"
+      }
+    },
+    {
+      "id": 69,
+      "type": "PH_ImagePicker",
+      "pos": [
+        -94.18689875730297,
+        815.7785145478418
+      ],
+      "size": [
+        508.37379751460594,
+        807.2402501230906
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "STRING",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            104
+          ]
+        },
+        {
+          "localized_name": "mask",
+          "name": "mask",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "ref_image_2",
+      "properties": {
+        "Node name for S&R": "PH_ImagePicker"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image": ""
+      }
+    },
+    {
+      "id": 70,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -1002.272552884561,
+        643.8923635851178
+      ],
+      "size": [
+        272.390834084619,
+        153.30684801498728
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": []
+        }
+      ],
+      "title": "Reference",
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "🖼️",
+        "showNav": "on",
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 73,
+      "type": "ResizeImageMaskNode",
+      "pos": [
+        665.7941360909709,
+        654.5457875926114
+      ],
+      "size": [
+        270,
+        110
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "input",
+          "name": "input",
+          "type": "IMAGE,MASK",
+          "link": 107
+        },
+        {
+          "localized_name": "resize_type",
+          "name": "resize_type",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "resize_type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "megapixels",
+          "name": "resize_type.megapixels",
+          "type": "FLOAT",
+          "widget": {
+            "name": "resize_type.megapixels"
+          },
+          "link": 131
+        },
+        {
+          "localized_name": "scale_method",
+          "name": "scale_method",
+          "type": "COMBO",
+          "widget": {
+            "name": "scale_method"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "resized",
+          "name": "resized",
+          "type": "IMAGE",
+          "links": [
+            108
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ResizeImageMaskNode",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "scale total pixels",
+        4,
+        "area"
+      ],
+      "widgets_values_named": {
+        "resize_type": "scale total pixels",
+        "resize_type.megapixels": 4,
+        "scale_method": "area"
+      }
+    },
+    {
+      "id": 74,
+      "type": "PH_ImagePicker",
+      "pos": [
+        481.386620672121,
+        815.7785145478418
+      ],
+      "size": [
+        508.37379751460594,
+        807.2402501230906
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "STRING",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            107
+          ]
+        },
+        {
+          "localized_name": "mask",
+          "name": "mask",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "ref_image_3",
+      "properties": {
+        "Node name for S&R": "PH_ImagePicker"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image": ""
+      }
+    },
+    {
+      "id": 75,
+      "type": "PixaromaPrompt",
+      "pos": [
+        -1266.3283248884882,
+        873.8570937190939
+      ],
+      "size": [
+        528.1115440078543,
+        709.7305089374756
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "text",
+          "localized_name": "text_in",
+          "name": "text_in",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            109,
+            110
+          ]
+        }
+      ],
+      "title": "8. Prompt Pixaroma",
+      "properties": {
+        "Node name for S&R": "PixaromaPrompt",
+        "promptState": {
+          "text": "สร้างภาพถ่ายแฟชั่นแนว Playful Korean Street Style ของหญิงสาววัยผู้ใหญ่ Original Character คงเอกลักษณ์ใบหน้าเดิมอย่างเคร่งครัด รูปร่างนางแบบเพรียวสูง เอวคอดสมส่วน ผิว Milky Ivory Porcelain Glass Skin โทนชมพูเย็น แต่งหน้า Korean Doll Makeup แก้มชมพูระเรื่อ อายแชโดว์สีโรสพิงก์ ขนตางอน ปากชมพูใสแบบ Glossy Tint\n\nสวมเสื้อครอปแขนยาวสีชมพูฟูเชีย เนื้อผ้ายืดแนบลำตัว คอเสื้อทรงกลมพร้อมช่องเว้ารูปหัวใจบริเวณหน้าอก เย็บขอบช่องเว้าด้วยผ้าริบเส้นเล็ก ปลายแขนเข้ารูป จับคู่กระโปรงสั้นเอวสูงลายทางสีชมพูอ่อนสลับขาว เนื้อผ้าคอตตอนทอริ้ว มีจีบรอบเอวและระบายชั้นล่าง พร้อมเชือกผูกสองข้างห้อยปลายพู่เล็ก ต่างหูเงินรูปดาว สร้อยข้อมือเส้นบาง เล็บเจลสีขาวนมแต้มปลายชมพูและประดับโบว์จิ๋ว\n\nนางแบบโน้มตัวเข้าหากล้องเล็กน้อย มือข้างหนึ่งยกขึ้นทำสัญลักษณ์ V ใกล้แก้ม อีกข้างวางบนต้นขา หลับตาข้างหนึ่งเป็นท่าวิงก์และยิ้มมุมปากอย่างขี้เล่น ฉากหลังเป็นผนังสีชมพูอมพีชบริเวณหน้าร้าน มีกรอบหน้าต่างและกระถางต้นไม้เล็กด้านข้าง ถ่ายภาพครึ่งตัวถึงต้นขา มุมกล้องระดับสายตาเอียงเล็กน้อย\n\nCamera & Lens | กล้องและเลนส์: Sony A7 IV, FE 35mm f/1.4 GM, aperture f/2.0, shutter 1/320s, ISO 200, close three-quarter portrait, vertical 9:16, 8K HDR, detailed knit texture and striped fabric.\n\nNegative prompt: black bucket hat, blue outfit, long skirt, plain neckline, missing heart cutout, stiff fingers, duplicated peace sign, uneven pupils, excessive accessories, harsh retouching, distorted fabric, text overlay, watermark.",
+          "order": "mine",
+          "sep": ", ",
+          "accent": null,
+          "showExpanded": false
+        },
+        "cnr_id": "ComfyUI-Pixaroma",
+        "aux_id": "pixaroma/ComfyUI-Pixaroma",
+        "ver": "41e68d88a5b499d1e44333e41579c94b6d1cf895",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "pix_prompt_ui": ""
+      },
+      "color": "#14436c",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 76,
+      "type": "ResizeImageMaskNode",
+      "pos": [
+        1264.7262134462762,
+        650.8923635851177
+      ],
+      "size": [
+        270,
+        110
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "input",
+          "name": "input",
+          "type": "IMAGE,MASK",
+          "link": 111
+        },
+        {
+          "localized_name": "resize_type",
+          "name": "resize_type",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "resize_type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "megapixels",
+          "name": "resize_type.megapixels",
+          "type": "FLOAT",
+          "widget": {
+            "name": "resize_type.megapixels"
+          },
+          "link": 132
+        },
+        {
+          "localized_name": "scale_method",
+          "name": "scale_method",
+          "type": "COMBO",
+          "widget": {
+            "name": "scale_method"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "resized",
+          "name": "resized",
+          "type": "IMAGE",
+          "links": [
+            112
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ResizeImageMaskNode",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "scale total pixels",
+        4,
+        "area"
+      ],
+      "widgets_values_named": {
+        "resize_type": "scale total pixels",
+        "resize_type.megapixels": 4,
+        "scale_method": "area"
+      }
+    },
+    {
+      "id": 77,
+      "type": "PH_ImagePicker",
+      "pos": [
+        1057.5746985586243,
+        815.7785145478418
+      ],
+      "size": [
+        508.37379751460594,
+        807.2402501230906
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "STRING",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            111
+          ]
+        },
+        {
+          "localized_name": "mask",
+          "name": "mask",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "ref_image_4",
+      "properties": {
+        "Node name for S&R": "PH_ImagePicker"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image": ""
+      }
+    },
+    {
+      "id": 78,
+      "type": "ResizeImageMaskNode",
+      "pos": [
+        1817.659043194871,
+        650.8923635851177
+      ],
+      "size": [
+        270,
+        110
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "input",
+          "name": "input",
+          "type": "IMAGE,MASK",
+          "link": 113
+        },
+        {
+          "localized_name": "resize_type",
+          "name": "resize_type",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "resize_type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "megapixels",
+          "name": "resize_type.megapixels",
+          "type": "FLOAT",
+          "widget": {
+            "name": "resize_type.megapixels"
+          },
+          "link": 133
+        },
+        {
+          "localized_name": "scale_method",
+          "name": "scale_method",
+          "type": "COMBO",
+          "widget": {
+            "name": "scale_method"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "resized",
+          "name": "resized",
+          "type": "IMAGE",
+          "links": [
+            114
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ResizeImageMaskNode",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "scale total pixels",
+        4,
+        "area"
+      ],
+      "widgets_values_named": {
+        "resize_type": "scale total pixels",
+        "resize_type.megapixels": 4,
+        "scale_method": "area"
+      }
+    },
+    {
+      "id": 79,
+      "type": "PH_ImagePicker",
+      "pos": [
+        1630.5393146889737,
+        815.7785145478417
+      ],
+      "size": [
+        508.37379751460594,
+        807.2402501230906
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "STRING",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            113
+          ]
+        },
+        {
+          "localized_name": "mask",
+          "name": "mask",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "ref_image_5",
+      "properties": {
+        "Node name for S&R": "PH_ImagePicker"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image": ""
+      }
+    },
+    {
+      "id": 80,
+      "type": "SaveImage",
+      "pos": [
+        -1399.3782711401159,
+        1750.9817912120718
+      ],
+      "size": [
+        969.553146554558,
+        1114.33476717366
+      ],
+      "flags": {},
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 141
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0"
+      },
+      "widgets_values": [
+        "MiniMax-H3-Image/MH3I_Edit_%year%%month%%day%-%hour%%minute%"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "MiniMax-H3-Image/MH3I_Edit_%year%%month%%day%-%hour%%minute%"
+      }
+    },
+    {
+      "id": 82,
+      "type": "PrimitiveFloat",
+      "pos": [
+        -1579.7609348967148,
+        1410.1664475272014
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "FLOAT",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "FLOAT",
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            129
+          ]
+        }
+      ],
+      "title": "Resize MegaPixels",
+      "properties": {
+        "Node name for S&R": "PrimitiveFloat"
+      },
+      "widgets_values": [
+        2
+      ],
+      "widgets_values_named": {
+        "value": 2
+      },
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 83,
+      "type": "Any Switch (rgthree)",
+      "pos": [
+        -534.1639707318769,
+        299.64461748516896
+      ],
+      "size": [
+        197.78457116214318,
+        106
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "any_01",
+          "type": "INT",
+          "link": 127
+        },
+        {
+          "dir": 3,
+          "name": "any_02",
+          "type": "INT",
+          "link": 135
+        },
+        {
+          "dir": 3,
+          "name": "any_03",
+          "type": "INT",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_04",
+          "type": "INT",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_05",
+          "type": "INT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": "INT",
+          "name": "*",
+          "shape": 3,
+          "type": "INT",
+          "links": [
+            122
+          ]
+        }
+      ],
+      "title": "Width Switch",
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "aux_id": "rgthree/rgthree-comfy",
+        "ver": "1.0.2604070017",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      }
+    },
+    {
+      "id": 84,
+      "type": "Any Switch (rgthree)",
+      "pos": [
+        -534.1639707318769,
+        451.9143751377776
+      ],
+      "size": [
+        197.78457116214318,
+        106
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "any_01",
+          "type": "INT",
+          "link": 128
+        },
+        {
+          "dir": 3,
+          "name": "any_02",
+          "type": "INT",
+          "link": 136
+        },
+        {
+          "dir": 3,
+          "name": "any_03",
+          "type": "INT",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_04",
+          "type": "INT",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_05",
+          "type": "INT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": "INT",
+          "name": "*",
+          "shape": 3,
+          "type": "INT",
+          "links": [
+            121
+          ]
+        }
+      ],
+      "title": "Height Switch",
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "aux_id": "rgthree/rgthree-comfy",
+        "ver": "1.0.2604070017",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      }
+    },
+    {
+      "id": 85,
+      "type": "SetNode",
+      "pos": [
+        -285.8952901711379,
+        489.9143751377776
+      ],
+      "size": [
+        210,
+        34
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 121
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "title": "Set_height",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "height",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "height"
+      ],
+      "widgets_values_named": {
+        "Constant": "height"
+      },
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 86,
+      "type": "SetNode",
+      "pos": [
+        -281.3835714211379,
+        317.73111837325166
+      ],
+      "size": [
+        210,
+        34
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 122
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "title": "Set_width",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "width",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "width"
+      ],
+      "widgets_values_named": {
+        "Constant": "width"
+      },
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 88,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": [
+        -1339.5021559758804,
+        669.5457875926114
+      ],
+      "size": [
+        275.39637697005037,
+        102
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "onTrigger",
+          "nameLocked": true,
+          "type": -1,
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": []
+        },
+        {
+          "name": "onExecuted",
+          "nameLocked": true,
+          "type": -1,
+          "links": []
+        }
+      ],
+      "title": "Resolution Switch",
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "Resolution",
+        "showNav": false,
+        "showAllGraphs": false,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "always one"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 89,
+      "type": "GetNode",
+      "pos": [
+        703.5387437369612,
+        332.7311183732517
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            125
+          ]
+        }
+      ],
+      "title": "Get_width",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "width"
+      ],
+      "widgets_values_named": {
+        "Constant": "width"
+      },
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 90,
+      "type": "GetNode",
+      "pos": [
+        703.5387437369612,
+        400.5747531529813
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            126
+          ]
+        }
+      ],
+      "title": "Get_height",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "height"
+      ],
+      "widgets_values_named": {
+        "Constant": "height"
+      },
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 91,
+      "type": "SetNode",
+      "pos": [
+        -1458.1789036467148,
+        1542.3181977182967
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "link": 129
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": []
+        }
+      ],
+      "title": "Set_mega_pixel",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "mega_pixel",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "mega_pixel"
+      ],
+      "widgets_values_named": {
+        "Constant": "mega_pixel"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 92,
+      "type": "GetNode",
+      "pos": [
+        -94.18689875730297,
+        654.5457875926114
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 18,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            130
+          ]
+        }
+      ],
+      "title": "Get_mega_pixel",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "mega_pixel"
+      ],
+      "widgets_values_named": {
+        "Constant": "mega_pixel"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 93,
+      "type": "GetNode",
+      "pos": [
+        481.386620672121,
+        654.5457875926114
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            131
+          ]
+        }
+      ],
+      "title": "Get_mega_pixel",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "mega_pixel"
+      ],
+      "widgets_values_named": {
+        "Constant": "mega_pixel"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 94,
+      "type": "GetNode",
+      "pos": [
+        1056.4147755460642,
+        654.5457875926115
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            132
+          ]
+        }
+      ],
+      "title": "Get_mega_pixel",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "mega_pixel"
+      ],
+      "widgets_values_named": {
+        "Constant": "mega_pixel"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 95,
+      "type": "GetNode",
+      "pos": [
+        1630.539314688974,
+        654.5457875926114
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 21,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            133
+          ]
+        }
+      ],
+      "title": "Get_mega_pixel",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "mega_pixel"
+      ],
+      "widgets_values_named": {
+        "Constant": "mega_pixel"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 96,
+      "type": "GetNode",
+      "pos": [
+        -884.4997708333449,
+        151.1498890795236
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            134
+          ]
+        }
+      ],
+      "title": "Get_mega_pixel",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "mega_pixel"
+      ],
+      "widgets_values_named": {
+        "Constant": "mega_pixel"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 97,
+      "type": "PixaromaSizes",
+      "pos": [
+        -1563.7600364296009,
+        935.3142869617926
+      ],
+      "size": [
+        240,
+        314
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": [
+            135
+          ]
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": [
+            136
+          ]
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "1. Pick Orientation and Size",
+      "properties": {
+        "Node name for S&R": "PixaromaSizes",
+        "cnr_id": "ComfyUI-Pixaroma",
+        "ver": "7a1cf573034fe14e29c1200d884531231a003e2e",
+        "sizesState": "{\"version\":1,\"sizes\":[[1024,1024],[768,1376],[1440,1440],[1088,1920],[2048,2048],[1312,2336]],\"selected\":3,\"orientation\":\"portrait\",\"snap\":32,\"accent\":null,\"collapsed\":false,\"starred\":[\"1696x2528\",\"1536x2752\",\"1088x1920\",\"1312x2336\"],\"tags\":{\"2048x2048\":\"2K\",\"1792x2400\":\"2K\",\"1696x2528\":\"4K\",\"1536x2752\":\"4K\",\"4096x4096\":\"8K\",\"3072x5472\":\"8K\",\"1536x2720\":\"4K\",\"1024x1024\":\"HD\",\"768x1376\":\"HD\",\"1440x1440\":\"Full HD\",\"1088x1920\":\"Full HD\",\"1312x2336\":\"2K\"},\"w\":1088,\"h\":1920}"
+      },
+      "widgets_values": [
+        {
+          "version": 1,
+          "sizes": [
+            [
+              1024,
+              1024
+            ],
+            [
+              768,
+              1376
+            ],
+            [
+              1440,
+              1440
+            ],
+            [
+              1088,
+              1920
+            ],
+            [
+              2048,
+              2048
+            ],
+            [
+              1312,
+              2336
+            ]
+          ],
+          "selected": 3,
+          "orientation": "portrait",
+          "snap": 32,
+          "accent": null,
+          "collapsed": false,
+          "starred": [
+            "1696x2528",
+            "1536x2752",
+            "1088x1920",
+            "1312x2336"
+          ],
+          "tags": {
+            "2048x2048": "2K",
+            "1792x2400": "2K",
+            "1696x2528": "4K",
+            "1536x2752": "4K",
+            "4096x4096": "8K",
+            "3072x5472": "8K",
+            "1536x2720": "4K",
+            "1024x1024": "HD",
+            "768x1376": "HD",
+            "1440x1440": "Full HD",
+            "1088x1920": "Full HD",
+            "1312x2336": "2K"
+          },
+          "w": 1088,
+          "h": 1920
+        }
+      ],
+      "widgets_values_named": {
+        "sizes_ui": {
+          "version": 1,
+          "sizes": [
+            [
+              1024,
+              1024
+            ],
+            [
+              768,
+              1376
+            ],
+            [
+              1440,
+              1440
+            ],
+            [
+              1088,
+              1920
+            ],
+            [
+              2048,
+              2048
+            ],
+            [
+              1312,
+              2336
+            ]
+          ],
+          "selected": 3,
+          "orientation": "portrait",
+          "snap": 32,
+          "accent": null,
+          "collapsed": false,
+          "starred": [
+            "1696x2528",
+            "1536x2752",
+            "1088x1920",
+            "1312x2336"
+          ],
+          "tags": {
+            "2048x2048": "2K",
+            "1792x2400": "2K",
+            "1696x2528": "4K",
+            "1536x2752": "4K",
+            "4096x4096": "8K",
+            "3072x5472": "8K",
+            "1536x2720": "4K",
+            "1024x1024": "HD",
+            "768x1376": "HD",
+            "1440x1440": "Full HD",
+            "1088x1920": "Full HD",
+            "1312x2336": "2K"
+          },
+          "w": 1088,
+          "h": 1920
+        }
+      },
+      "color": "#14436c",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 99,
+      "type": "PixaromaRunTimer",
+      "pos": [
+        -1533.969919271715,
+        645.7190755888641
+      ],
+      "size": [
+        150,
+        50
+      ],
+      "flags": {
+        "no_title": true
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PixaromaRunTimer",
+        "cnr_id": "ComfyUI-Pixaroma",
+        "aux_id": "pixaroma/ComfyUI-Pixaroma",
+        "ver": "13f9d5d1da21e09515a5843e9392c3f69a435297",
+        "runTimerState": {
+          "version": 1,
+          "color": "#f66744",
+          "decimals": 0,
+          "chime": true,
+          "sound": "",
+          "volume": 0
+        },
+        "runTimerLastMs": 108722.39999997616,
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "color": "#1d1d1d",
+      "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 100,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        19.88859755761338,
+        -310
+      ],
+      "size": [
+        590,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 4,
+      "title": "Character Swap LoRA",
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 54
+        },
+        {
+          "localized_name": "lora_name",
+          "name": "lora_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength_model",
+          "name": "strength_model",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            145
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly",
+        "cnr_id": "comfy-core",
+        "ver": "0.45.0",
+        "models": [
+          {
+            "name": "h3_character_swap_v1.5.safetensors",
+            "url": "https://huggingface.co/akhaliq/MiniMax-H3-Image-Character-Swap/resolve/main/lora/h3_character_swap_v1.5.safetensors",
+            "directory": "loras"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax-h3/h3_character_swap_v1.5.safetensors",
+        1.0
+      ]
+    },
+    {
+      "id": 102,
+      "type": "MarkdownNote",
+      "pos": [
+        19.88859755761338,
+        -210
+      ],
+      "size": [
+        590,
+        160
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "title": "Character Swap prompt",
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "**Turn on with the \"Character Swap\" toggle.** Scene = main image (`<Picture 1>`), character = Image 2 (`<Picture 2>`).\n\nSwap the woman in <Picture 1> with the character in <Picture 2>. Keep the reference character's face, hair, identity and outfit exactly as in <Picture 2>, including its art style. The replacement must hold the same pose, position, scale and gaze. Preserve the background, lighting, camera framing and all other people in <Picture 1> unchanged.\n\nName the target person when there are several (\"the man in the yellow sweater, left\")."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 101,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -310.11140244238663,
+        -310
+      ],
+      "size": [
+        272.390834084619,
+        82
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": []
+        }
+      ],
+      "title": "Character Swap",
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "Character Swap LoRA",
+        "showNav": "off",
+        "showAllGraphs": false,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 103,
+      "type": "PixaromaInpaintCrop",
+      "title": "Swap Target Crop (paint the person)",
+      "pos": [
+        710,
+        -850
+      ],
+      "size": [
+        420,
+        720
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 103,
+          "shape": 7
+        },
+        {
+          "localized_name": "mask",
+          "name": "mask",
+          "type": "MASK",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            138
+          ]
+        },
+        {
+          "localized_name": "mask",
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "localized_name": "crop_info",
+          "name": "crop_info",
+          "type": "PIXAROMA_CROP_INFO",
+          "links": [
+            140
+          ]
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PixaromaInpaintCrop"
+      },
+      "widgets_values": [
+        "keep shape (long side)",
+        2048,
+        32,
+        96,
+        16,
+        8,
+        24,
+        "mask",
+        false,
+        {
+          "state_json": "{}"
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "type": "PixaromaInpaintStitch",
+      "title": "Swap Stitch",
+      "pos": [
+        1160,
+        -850
+      ],
+      "size": [
+        320,
+        160
+      ],
+      "flags": {},
+      "order": 46,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 115
+        },
+        {
+          "localized_name": "crop_info",
+          "name": "crop_info",
+          "type": "PIXAROMA_CROP_INFO",
+          "link": 140,
+          "shape": 7
+        },
+        {
+          "localized_name": "mask",
+          "name": "mask",
+          "type": "MASK",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            141
+          ]
+        },
+        {
+          "localized_name": "original",
+          "name": "original",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PixaromaInpaintStitch"
+      },
+      "widgets_values": [
+        -1,
+        "from crop",
+        "off"
+      ]
+    },
+    {
+      "id": 105,
+      "type": "MarkdownNote",
+      "title": "Crop & Stitch how-to",
+      "pos": [
+        1160,
+        -650
+      ],
+      "size": [
+        640,
+        300
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "**For a small person, or one person in a crowd.** Turn on the \"Swap Crop & Stitch\" toggle, open the crop node's editor and roughly paint over the person to replace (include where the new hair/outfit will go).\n\nThe crop is enlarged to ~2 MP, swapped, and only the painted area is pasted back - everyone outside the mask stays untouched.\n\n- Raise **context_px** for tiny people (more scene around them); 48-96 is fine for medium ones.\n- If another person is inside the crop the model may swap them instead - the paste-back still protects them, but paint tighter or name the target clearly.\n- Turn it OFF when you have no mask: an empty mask pastes nothing back."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 106,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        380,
+        -850
+      ],
+      "size": [
+        272.390834084619,
+        82
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": []
+        }
+      ],
+      "title": "Swap Crop & Stitch",
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "Character Swap Crop",
+        "showNav": "off",
+        "showAllGraphs": false,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 107,
+      "type": "H3UnpinnedOffload",
+      "pos": [
+        -560.0,
+        -380.0
+      ],
+      "size": [
+        300,
+        78
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 145,
+          "shape": 7
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 142,
+          "shape": 7
+        },
+        {
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            146
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            143
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "H3UnpinnedOffload",
+        "cnr_id": "comfyui-h3-r9700-accel"
+      },
+      "title": "Unpinned Offload (fast model swap)",
+      "widgets_values": [
+        true
+      ]
+    },
+    {
+      "id": 108,
+      "type": "MiniMaxH3TextEncoderBF16",
+      "pos": [
+        -560.0,
+        -260.0
+      ],
+      "size": [
+        300,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 143
+        },
+        {
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            144
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3TextEncoderBF16",
+        "cnr_id": "comfyui-h3-r9700-accel"
+      },
+      "title": "MiniMax H3 Text Encoder BF16",
+      "widgets_values": [
+        true
+      ]
+    },
+    {
+      "id": 109,
+      "type": "MarkdownNote",
+      "pos": [
+        -560.0,
+        -160.0
+      ],
+      "size": [
+        420,
+        300
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "title": "Note: Fast settings (ComfyUI-H3-R9700-Accel)",
+      "color": "#432",
+      "bgcolor": "#653",
+      "widgets_values": [
+        "## Fast settings (ComfyUI-H3-R9700-Accel)\n\nTwo nodes between the loaders and the sampler:\n\n- **Unpinned Offload (fast model swap)** on MODEL and CLIP: the 15 GB text encoder and the 20 GB image DiT do not fit in 32 GB together, so every prompt change swaps them. Without page-locking the offloaded weights the swap is much faster. Same pixels.\n- **MiniMax H3 Text Encoder BF16**: the text encoder (including the reference pictures it reads) runs in bf16 instead of fp32. Conditioning 66 s → 16 s. The edited picture keeps the person and layout; small differences in detail.\n\nMeasured, one 2 MP reference, 8 steps, prompt change: **94 s → 38 s**.\nSwitch either node off (enabled = false) to get the original behaviour back."
+      ]
+    }
+  ],
+  "links": [
+    [
+      52,
+      32,
+      0,
+      33,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      53,
+      41,
+      0,
+      37,
+      0,
+      "*"
+    ],
+    [
+      54,
+      29,
+      0,
+      100,
+      0,
+      "MODEL"
+    ],
+    [
+      55,
+      32,
+      0,
+      38,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      56,
+      33,
+      0,
+      38,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      57,
+      32,
+      1,
+      38,
+      3,
+      "LATENT"
+    ],
+    [
+      58,
+      39,
+      0,
+      40,
+      0,
+      "STRING"
+    ],
+    [
+      59,
+      38,
+      0,
+      42,
+      0,
+      "LATENT"
+    ],
+    [
+      60,
+      31,
+      0,
+      42,
+      1,
+      "VAE"
+    ],
+    [
+      65,
+      34,
+      0,
+      44,
+      0,
+      "STRING"
+    ],
+    [
+      66,
+      44,
+      0,
+      41,
+      1,
+      "STRING"
+    ],
+    [
+      77,
+      48,
+      0,
+      50,
+      0,
+      "IMAGE"
+    ],
+    [
+      92,
+      61,
+      0,
+      41,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      109,
+      75,
+      0,
+      40,
+      2,
+      "STRING"
+    ],
+    [
+      110,
+      75,
+      0,
+      41,
+      0,
+      "STRING"
+    ],
+    [
+      115,
+      42,
+      0,
+      104,
+      0,
+      "IMAGE"
+    ],
+    [
+      121,
+      84,
+      0,
+      85,
+      0,
+      "INT"
+    ],
+    [
+      122,
+      83,
+      0,
+      86,
+      0,
+      "INT"
+    ],
+    [
+      129,
+      82,
+      0,
+      91,
+      0,
+      "FLOAT"
+    ],
+    [
+      67,
+      35,
+      0,
+      34,
+      0,
+      "CLIP"
+    ],
+    [
+      81,
+      56,
+      0,
+      34,
+      1,
+      "IMAGE"
+    ],
+    [
+      68,
+      36,
+      0,
+      34,
+      7,
+      "STRING"
+    ],
+    [
+      69,
+      40,
+      0,
+      34,
+      8,
+      "STRING"
+    ],
+    [
+      88,
+      56,
+      0,
+      48,
+      0,
+      "IMAGE"
+    ],
+    [
+      103,
+      68,
+      0,
+      103,
+      0,
+      "IMAGE"
+    ],
+    [
+      134,
+      96,
+      0,
+      56,
+      2,
+      "FLOAT"
+    ],
+    [
+      104,
+      69,
+      0,
+      65,
+      0,
+      "IMAGE"
+    ],
+    [
+      130,
+      92,
+      0,
+      65,
+      2,
+      "FLOAT"
+    ],
+    [
+      107,
+      74,
+      0,
+      73,
+      0,
+      "IMAGE"
+    ],
+    [
+      131,
+      93,
+      0,
+      73,
+      2,
+      "FLOAT"
+    ],
+    [
+      111,
+      77,
+      0,
+      76,
+      0,
+      "IMAGE"
+    ],
+    [
+      132,
+      94,
+      0,
+      76,
+      2,
+      "FLOAT"
+    ],
+    [
+      113,
+      79,
+      0,
+      78,
+      0,
+      "IMAGE"
+    ],
+    [
+      133,
+      95,
+      0,
+      78,
+      2,
+      "FLOAT"
+    ],
+    [
+      50,
+      31,
+      0,
+      32,
+      1,
+      "VAE"
+    ],
+    [
+      100,
+      56,
+      0,
+      32,
+      2,
+      "IMAGE"
+    ],
+    [
+      99,
+      65,
+      0,
+      32,
+      3,
+      "IMAGE"
+    ],
+    [
+      108,
+      73,
+      0,
+      32,
+      4,
+      "IMAGE"
+    ],
+    [
+      112,
+      76,
+      0,
+      32,
+      5,
+      "IMAGE"
+    ],
+    [
+      114,
+      78,
+      0,
+      32,
+      6,
+      "IMAGE"
+    ],
+    [
+      89,
+      37,
+      0,
+      32,
+      11,
+      "STRING"
+    ],
+    [
+      125,
+      89,
+      0,
+      32,
+      12,
+      "INT"
+    ],
+    [
+      126,
+      90,
+      0,
+      32,
+      13,
+      "INT"
+    ],
+    [
+      127,
+      50,
+      0,
+      83,
+      0,
+      "INT"
+    ],
+    [
+      135,
+      97,
+      0,
+      83,
+      1,
+      "INT"
+    ],
+    [
+      128,
+      50,
+      1,
+      84,
+      0,
+      "INT"
+    ],
+    [
+      136,
+      97,
+      1,
+      84,
+      1,
+      "INT"
+    ],
+    [
+      138,
+      103,
+      0,
+      56,
+      0,
+      "IMAGE"
+    ],
+    [
+      140,
+      103,
+      2,
+      104,
+      1,
+      "PIXAROMA_CROP_INFO"
+    ],
+    [
+      141,
+      104,
+      0,
+      80,
+      0,
+      "IMAGE"
+    ],
+    [
+      142,
+      30,
+      0,
+      107,
+      1,
+      "CLIP"
+    ],
+    [
+      143,
+      107,
+      1,
+      108,
+      0,
+      "CLIP"
+    ],
+    [
+      144,
+      108,
+      0,
+      32,
+      0,
+      "CLIP"
+    ],
+    [
+      145,
+      100,
+      0,
+      107,
+      0,
+      "MODEL"
+    ],
+    [
+      146,
+      107,
+      0,
+      38,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 6,
+      "title": "Models",
+      "bounding": [
+        -10.11140244238662,
+        -2.165406726370401,
+        650.0000000000001,
+        503.18102736603225
+      ],
+      "color": "#A88",
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "Conditioning",
+      "bounding": [
+        963.0517989834257,
+        -89.42524684701866,
+        500.7519838687756,
+        620
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "Sampling & Decoding",
+      "bounding": [
+        1494.726213446276,
+        -90,
+        670,
+        620
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 9,
+      "title": "Prompt Enhancer",
+      "bounding": [
+        -112.3544496026353,
+        1670.9817912120718,
+        1950,
+        900
+      ],
+      "color": "#444",
+      "flags": {}
+    },
+    {
+      "id": 11,
+      "title": "Output",
+      "bounding": [
+        -1416.4096816357978,
+        1670.9817912120718,
+        1024.7306926968881,
+        1241.1495063059626
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 12,
+      "title": "🖼️ Image 2",
+      "bounding": [
+        -112.3544496026353,
+        569.015620639662,
+        552.3544496026353,
+        1070.6382930679963
+      ],
+      "color": "#A88",
+      "flags": {}
+    },
+    {
+      "id": 14,
+      "title": "🖼️ Image 3",
+      "bounding": [
+        463.21906982678865,
+        569.015620639662,
+        552.3544496026353,
+        1070.6382930679963
+      ],
+      "color": "#A88",
+      "flags": {}
+    },
+    {
+      "id": 15,
+      "title": "🖼️ Image 4",
+      "bounding": [
+        1039.407147713292,
+        569.015620639662,
+        552.3544496026353,
+        1070.6382930679963
+      ],
+      "color": "#A88",
+      "flags": {}
+    },
+    {
+      "id": 16,
+      "title": "🖼️ Image 5",
+      "bounding": [
+        1612.3717638436415,
+        569.0156206396618,
+        552.3544496026353,
+        1070.6382930679963
+      ],
+      "color": "#A88",
+      "flags": {}
+    },
+    {
+      "id": 17,
+      "title": "Reference Image Resolution",
+      "bounding": [
+        -1137.2023394120188,
+        287.7311183732517,
+        532.3580530727281,
+        261.86027133562465
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 19,
+      "title": "Inputs - Main",
+      "bounding": [
+        -1624.583672674782,
+        569.0156206396617,
+        1506.567497195831,
+        1070.6382930679965
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 18,
+      "title": "Manual Resolution",
+      "bounding": [
+        -1589.1896098195598,
+        854.8732750513592,
+        288.8573498456901,
+        498.92298424460193
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 20,
+      "title": "Character Swap LoRA",
+      "bounding": [
+        -10.11140244238662,
+        -360,
+        650,
+        340
+      ],
+      "color": "#a1309b",
+      "flags": {}
+    },
+    {
+      "id": 21,
+      "title": "Character Swap Crop & Stitch",
+      "bounding": [
+        680,
+        -900,
+        1480,
+        800
+      ],
+      "color": "#a1309b",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.29378810066675604,
+      "offset": [
+        4444.226086781749,
+        -1355.688447228737
+      ]
+    },
+    "frontendVersion": "1.58.5",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "linkPresentation": {
+      "89": {
+        "hidden": true,
+        "label": "prompt output"
+      }
+    }
+  },
+  "version": 0.4
+}

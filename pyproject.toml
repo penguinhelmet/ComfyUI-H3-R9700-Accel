@@ -1,0 +1,13 @@
+[project]
+name = "comfyui-h3-r9700-accel"
+description = "Opt-in speed-ups for MiniMax H3 video and image in ComfyUI on the AMD Radeon AI PRO R9700 (gfx1201, ROCm): bf16 text encoder, bf16 VAE with Triton kernels, faster model swaps."
+version = "0.1.0"
+license = { text = "MIT" }
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/penguinhelmet/ComfyUI-H3-R9700-Accel"
+
+[tool.comfy]
+PublisherId = "penguinhelmet"
+DisplayName = "ComfyUI-H3-R9700-Accel"
