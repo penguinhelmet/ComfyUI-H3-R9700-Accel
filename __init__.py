@@ -6,6 +6,8 @@ encoders with dtype=float32, so the hidden states stay fp32 and each nvfp4 layer
 GEMM. On ROCm (R9700) that lands on a small-tile fp32 kernel: ~32 s of a ~38 s encode. The weights file, the loader and
 the vision tower are unchanged; the conditioning still leaves the encoder as fp32. The MiniMax H3 Image encoder
 (PH3ImageQwen3VL) gets the same bf16 language model; its hidden states go back to fp32 before its fp32 text connector.
+Plain Qwen3-VL encoders (Qwen-Image 2.1's qwen3vl_8b, Krea 2's qwen3vl_4b) and Qwen3.5 (MOSS Image's qwen35_9b) get
+a bf16 language model and a bf16 vision tower, and their outputs go back to fp32.
 
 "Unpinned Offload": for the MODEL and/or CLIP passed through it, weights moved out of VRAM to make room for another
 model are not page-locked (cudaHostRegister) in RAM. With the 15 GB text encoder and the 20 GB H3 Image DiT, which do
@@ -23,7 +25,8 @@ import types
 import torch
 import comfy.model_patcher
 import comfy.sd
-from comfy.text_encoders import minimax
+import comfy.text_encoders.qwen_vl
+from comfy.text_encoders import minimax, qwen35, qwen3vl
 
 OPTION = "h3accel_te_bf16"
 _state = threading.local()
@@ -69,6 +72,65 @@ comfy.sd.CLIP.encode_from_tokens = _encode
 minimax.MiniMaxQwen3VL.forward = _lm_forward
 minimax.PH3ImageQwen3VL.forward = _img_forward
 
+_qwen3vl_forward = qwen3vl.Qwen3VL.forward
+_qwen3vl_preprocess = qwen3vl.Qwen3VL.preprocess_embed
+
+
+def _plain_qwen3vl(self):
+    # Qwen-Image 2.1's encoder class is a dynamic subclass of Qwen3VL; the MiniMax ones keep their own handling above
+    return getattr(_state, "bf16", False) and not isinstance(self, minimax.MiniMaxQwen3VL)
+
+
+def _qvl_forward(self, input_ids, attention_mask=None, embeds=None, *args, dtype=None, **kwargs):
+    if _plain_qwen3vl(self) and dtype == torch.float32:
+        if embeds is not None:
+            embeds = embeds.to(torch.bfloat16)
+        out = _qwen3vl_forward(self, input_ids, attention_mask, embeds, *args, dtype=torch.bfloat16, **kwargs)
+        if isinstance(out, tuple):
+            return tuple(o.float() if torch.is_tensor(o) and o.is_floating_point() else o for o in out)
+        return out.float() if torch.is_tensor(out) else out
+    return _qwen3vl_forward(self, input_ids, attention_mask, embeds, *args, dtype=dtype, **kwargs)
+
+
+def _qvl_preprocess(self, embed, device):
+    if _plain_qwen3vl(self) and embed["type"] == "image":
+        image, grid = comfy.text_encoders.qwen_vl.process_qwen2vl_images(
+            embed["data"], patch_size=16, image_mean=[0.5, 0.5, 0.5], image_std=[0.5, 0.5, 0.5])
+        merged, deepstack = self.visual(image.to(device, dtype=torch.bfloat16), grid)
+        return merged, {"grid": grid, "deepstack": deepstack}
+    return _qwen3vl_preprocess(self, embed, device)
+
+
+qwen3vl.Qwen3VL.forward = _qvl_forward
+qwen3vl.Qwen3VL.preprocess_embed = _qvl_preprocess
+
+# Qwen3.5 (MOSS Image's qwen35_9b): same treatment, bf16 language model and vision tower, fp32 outputs.
+_qwen35_forward = qwen35.Qwen35.forward
+_qwen35_preprocess = qwen35.Qwen35.preprocess_embed
+
+
+def _q35_forward(self, x, attention_mask=None, embeds=None, *args, dtype=None, **kwargs):
+    if getattr(_state, "bf16", False) and dtype == torch.float32:
+        if embeds is not None:
+            embeds = embeds.to(torch.bfloat16)
+        out = _qwen35_forward(self, x, attention_mask, embeds, *args, dtype=torch.bfloat16, **kwargs)
+        if isinstance(out, tuple):
+            return tuple(o.float() if torch.is_tensor(o) and o.is_floating_point() else o for o in out)
+        return out.float() if torch.is_tensor(out) else out
+    return _qwen35_forward(self, x, attention_mask, embeds, *args, dtype=dtype, **kwargs)
+
+
+def _q35_preprocess(self, embed, device):
+    if getattr(_state, "bf16", False) and embed["type"] == "image":
+        image, grid = comfy.text_encoders.qwen_vl.process_qwen2vl_images(
+            embed["data"], patch_size=16, image_mean=[0.5, 0.5, 0.5], image_std=[0.5, 0.5, 0.5])
+        return self.visual(image.to(device, dtype=torch.bfloat16), grid), grid
+    return _qwen35_preprocess(self, embed, device)
+
+
+qwen35.Qwen35.forward = _q35_forward
+qwen35.Qwen35.preprocess_embed = _q35_preprocess
+
 NO_PIN = "h3accel_no_pin"
 _pin_weight_to_device = comfy.model_patcher.ModelPatcher.pin_weight_to_device
 
@@ -84,8 +146,9 @@ comfy.model_patcher.ModelPatcher.pin_weight_to_device = _pin
 
 
 class MiniMaxH3TextEncoderBF16:
-    DESCRIPTION = ("Runs the MiniMax H3 (video and image) text encoder's language model in bf16 instead of fp32: same "
-                   "weights file, ~4x faster encode on AMD. Has no effect on other text encoders.")
+    DESCRIPTION = ("Runs Qwen3-VL / Qwen3.5 text encoders (MiniMax H3 video and image, Qwen-Image 2.1, Krea 2, "
+                   "MOSS Image) in bf16 instead of fp32: "
+                   "same weights file, much faster encode on AMD. Has no effect on other text encoders.")
     CATEGORY = "advanced/model"
     RETURN_TYPES = ("CLIP",)
     FUNCTION = "apply"

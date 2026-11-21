@@ -6,7 +6,7 @@ ComfyUI's own files are not changed, and you keep using your existing checkpoint
 
 | Node | Where it goes | What it does |
 |---|---|---|
-| [MiniMax H3 Text Encoder BF16](#minimax-h3-text-encoder-bf16) | after **Load CLIP** | Runs the H3 text encoder in bf16 instead of fp32 |
+| [MiniMax H3 Text Encoder BF16](#minimax-h3-text-encoder-bf16) | after **Load CLIP** | Runs Qwen3-VL / Qwen3.5 text encoders (H3, Qwen-Image 2.1, Krea 2, MOSS Image) in bf16 instead of fp32 |
 | [Load VAE (BF16)](#load-vae-bf16) | replaces **Load VAE** for the final video decode | bf16 VAE plus two Triton kernels |
 | [Unpinned Offload (fast model swap)](#unpinned-offload-fast-model-swap) | on MODEL and CLIP (H3 Image) | Faster swaps between the text encoder and the image model |
 
@@ -61,6 +61,13 @@ the loader and the vision tower are unchanged. For H3 Image, the hidden states g
 text connector.
 
 - Works for H3 video (T2V / I2V / R2V) and H3 Image (T2I / I2I). Other text encoders pass through unchanged.
+- Also covers the other Qwen3-VL and Qwen3.5 encoders in ComfyUI, language model and vision tower:
+
+  | Model | Encoder | Encode on a prompt change |
+  |---|---|---|
+  | Qwen-Image 2.1 Edit, one reference image | Qwen3-VL 8B | 42 s → 2.3 s |
+  | MOSS Image | Qwen3.5 9B | 8.2 s → 0.7 s |
+  | Krea 2 | Qwen3-VL 4B | 3.5 s → 0.2 s |
 - **Output:** the conditioning differs slightly from fp32. With the same seed you get a close variant: same
   composition and characters, with small changes in pose and detail. Set `enabled` to false to get the fp32 result.
 
