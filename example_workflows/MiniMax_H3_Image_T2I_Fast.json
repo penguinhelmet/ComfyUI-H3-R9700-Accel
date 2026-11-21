@@ -1,7 +1,7 @@
 {
   "id": "003b491c-0fcb-44fd-b82c-a6a9ac8dac24",
   "revision": 0,
-  "last_node_id": 128,
+  "last_node_id": 129,
   "last_link_id": 209,
   "nodes": [
     {
@@ -1376,6 +1376,30 @@
       },
       "color": "#1d1d1d",
       "bgcolor": "#2a2a2a"
+    },
+    {
+      "id": 129,
+      "type": "MarkdownNote",
+      "pos": [
+        -2599.885608551017,
+        760
+      ],
+      "size": [
+        620,
+        1000
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "title": "Note: Model Links",
+      "color": "#432",
+      "bgcolor": "#653",
+      "widgets_values": [
+        "## Model Links\n\nFiles this workflow loads. Put them in the sub-folders shown below so the loaders find them without re-selecting.\n\n**diffusion_models**\n\n- [minimax_h3_image_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3-Image/blob/main/diffusion_models/minimax_h3_image_pruned_int8_convrot.safetensors)\n\n**text_encoders**\n\n- [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3-Image/blob/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors) (same file as H3 video)\n\n**vae**\n\n- [minimax_h3_image_vae_fp16.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3-Image/blob/main/vae/minimax_h3_image_vae_fp16.safetensors)\n\n**loras** (optional, off by default)\n\n- [h3-realism-people-t2v-i2v-r2v.safetensors](https://huggingface.co/fal/MiniMax-H3-Realism-People-LoRA/blob/main/h3-realism-people-t2v-i2v-r2v.safetensors) (H3 video LoRA, loaded by the H3 LoRA Stack; add `r34l1sm` to the prompt)\n\n**custom_nodes**\n\n- [ComfyUI-H3-R9700-Accel](https://github.com/penguinhelmet/ComfyUI-H3-R9700-Accel) (Unpinned Offload, Text Encoder BF16)\n- [H3-Video-LoRA-Loader-for-Image](https://github.com/DeepNeuralNerd/H3-Video-LoRA-Loader-for-Image)\n- [ComfyUI-Pixaroma](https://github.com/pixaroma/ComfyUI-Pixaroma)\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 diffusion_models/\n│   │   └── 📂 minimax-h3/\n│   │       └── minimax_h3_image_pruned_int8_convrot.safetensors\n│   ├── 📂 text_encoders/\n│   │   └── 📂 minimax-h3/\n│   │       └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n│   ├── 📂 vae/\n│   │   └── 📂 minimax-h3/\n│   │       └── minimax_h3_image_vae_fp16.safetensors\n│   └── 📂 loras/\n│       └── 📂 minimax-h3/\n│           └── h3-realism-people-t2v-i2v-r2v.safetensors\n```\n\n## Report Issue\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- h3accel nodes: [ComfyUI-H3-R9700-Accel/issues](https://github.com/penguinhelmet/ComfyUI-H3-R9700-Accel/issues)\n"
+      ]
     }
   ],
   "links": [
